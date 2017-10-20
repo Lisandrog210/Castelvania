@@ -27,10 +27,14 @@ class Player extends FlxSprite
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 
-		animation.add("idle", [0], 8, true);
-		animation.add("run", [0,1,2,3,4], 12, true);
-		animation.add("jump", [8], 8, false);
-		animation.add("melee",[6,7],12,true);
+		animation.add("idle", [1], 8, true);
+		animation.add("run", [1,2,3,4,5], 12, true);
+		animation.add("jump", [9], 8, false);
+		animation.add("melee", [7,8], 12, false);
+		acceleration.y = 1600;
+		currentState = States.IDLE;
+		scale.set(0.5, 0.5);
+		updateHitbox();
 
 	}
 
@@ -53,6 +57,10 @@ class Player extends FlxSprite
 					currentState = States.JUMP;
 				else if (velocity.x != 0)
 					currentState = States.RUN;
+				if (FlxG.keys.justPressed.SPACE)
+				{
+					currentState = States.MELEE;
+				}
 			case States.RUN:
 				animation.play("run");
 				move();
@@ -75,12 +83,13 @@ class Player extends FlxSprite
 
 				}
 			case States.MELEE:
-				if (FlxG.keys.pressed.SPACE)
-				{
+				
 					animation.play("melee");
-					move();
-					jump();
-				}
+					if (animation.curAnim.curFrame == 1) 
+					{
+						currentState = States.IDLE;
+					}
+				
 
 		}
 	}
