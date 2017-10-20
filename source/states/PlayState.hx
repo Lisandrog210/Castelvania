@@ -6,8 +6,6 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 
-
-
 class PlayState extends FlxState
 {
 	private var player:Player;
@@ -17,19 +15,16 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
-		FlxG.camera.bgColor = 0xFFCC4466;
+		FlxG.camera.bgColor = FlxColor.ORANGE;
 		
-		platform1 = new FlxSprite(100, 350);
-		platform1.makeGraphic(440, 32,FlxColor.WHITE);
+		platform1 = new FlxSprite(80, 120);
+		platform1.makeGraphic(100, 20);
 		platform1.immovable = true;
 		
-		player = new Player(300, 200);
+		player = new Player(100, 10);
 		
 		add(platform1);
-		add(player);
-		
-		
-		
+		add(player);		
 		
 	}
 
@@ -37,6 +32,7 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 		FlxG.collide(platform1, player);
+		
 
 	}
 }
