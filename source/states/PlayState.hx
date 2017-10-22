@@ -15,42 +15,71 @@ import flixel.FlxObject;
 
 class PlayState extends FlxState
 {
-	
+
 	private var player:Player;
 	private var loader:FlxOgmoLoader;
 	private var background:FlxBackdrop;
 	private var tilemapBricks:FlxTilemap;
-	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;	
-	
+	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
 
 	override public function create():Void
 	{
 		super.create();
-		
+
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
-		
-		cameraSetup();
-		
+
 		FlxG.camera.bgColor = FlxColor.ORANGE;
 		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
-		
-		
+
+		add(background);
+		add(tilemapBricks);
+
 		player = new Player(100, 10);
-		
-		add(player);		
-		
-	}
-	
-	function cameraSetup() 
-	{
-		camera = new FlxCamera();
-		camera.follow(player);
+		player.pixelPerfectPosition = false;
+
+		levelSetup();
+
+		add(groupGouhlfly);
+		add(player);
+		cameraSetup();
 	}
 
-	override public function update(elapsed:Float):Void
+	function levelSetup()
 	{
-		super.update(elapsed);
-		
+		loader = new FlxOgmoLoader(AssetPaths.test1__oel);
 
-	}
-}
+		tilemapBricks = loader.loadTilemap(AssetPaths.lvlTEST__png, 32, 32, "bricks");
+		tilemapBricks.setTileProperties(0, FlxObject.NONE);
+
+		loader.loadEntities(entityCreator, "enemies");
+
+		private function entityCreator(entityName:String, entityData:Xml)
+		{
+
+			var x:Int = Std.parseInt(entityData.get("x"));
+
+			var y:Int = Std.parseInt(entityData.get("y"));
+
+			switch (entityName)
+			{
+
+				case "gouhlfly":
+
+					var gouhl1:GouhlFly= new GouhlFly(x, y,AssetPaths.);
+
+					enemyPlanes.add(plane1);
+
+			}
+
+			function cameraSetup()
+			{
+				camera = new FlxCamera();
+				camera.follow(player);
+			}
+
+			override public function update(elapsed:Float):Void
+			{
+				super.update(elapsed);
+
+			}
+		}
