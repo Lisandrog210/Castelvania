@@ -1,37 +1,55 @@
 package states;
 
+import entities.GouhlFly;
 import flixel.FlxState;
 import entities.Player;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.util.FlxColor;
+import flixel.FlxCamera;
+import flixel.addons.display.FlxBackdrop;
+import flixel.addons.editors.ogmo.FlxOgmoLoader;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.tile.FlxTilemap;
+import flixel.FlxObject;
 
 class PlayState extends FlxState
 {
-	private var player:Player;
-	private var platform1:FlxSprite;
 	
+	private var player:Player;
+	private var loader:FlxOgmoLoader;
+	private var background:FlxBackdrop;
+	private var tilemapBricks:FlxTilemap;
+	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;	
+	
+
 	override public function create():Void
 	{
 		super.create();
 		
-		FlxG.camera.bgColor = FlxColor.ORANGE;
+		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
 		
-		platform1 = new FlxSprite(80, 120);
-		platform1.makeGraphic(100, 20);
-		platform1.immovable = true;
+		cameraSetup();
+		
+		FlxG.camera.bgColor = FlxColor.ORANGE;
+		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
+		
 		
 		player = new Player(100, 10);
 		
-		add(platform1);
 		add(player);		
 		
+	}
+	
+	function cameraSetup() 
+	{
+		camera = new FlxCamera();
+		camera.follow(player);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		FlxG.collide(platform1, player);
 		
 
 	}

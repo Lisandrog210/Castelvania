@@ -28,9 +28,9 @@ class Player extends FlxSprite
 		setFacingFlip(FlxObject.LEFT, true, false);
 
 		animation.add("idle", [1], 8, true);
-		animation.add("run", [1,2,3,4,5], 12, true);
+		animation.add("run", [1,2,3,4,5], 8, true);
 		animation.add("jump", [9], 8, false);
-		animation.add("melee", [7,8], 12, false);
+		animation.add("melee", [7,8], 8, false);
 		acceleration.y = 1600;
 		currentState = States.IDLE;
 		scale.set(0.5, 0.5);
@@ -99,9 +99,9 @@ class Player extends FlxSprite
 		velocity.x = 0;
 
 		if (FlxG.keys.pressed.RIGHT)
-			velocity.x += 300;
+			velocity.x += 100;
 		if (FlxG.keys.pressed.LEFT)
-			velocity.x -= 300;
+			velocity.x -= 100;
 
 		if (velocity.x < 0)
 			facing = FlxObject.LEFT;
@@ -112,7 +112,7 @@ class Player extends FlxSprite
 	private function jump():Void
 	{
 		if (FlxG.keys.justPressed.UP && isTouching(FlxObject.FLOOR))
-			velocity.y = -600;
+			velocity.y = -300;
 	}
 
 	function get_currentState():States

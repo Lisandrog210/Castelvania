@@ -16,8 +16,10 @@ class AssetData {
 		
 		if (!initialized) {
 			
-			path.set ("assets/data/data-goes-here.txt", "assets/data/data-goes-here.txt");
-			type.set ("assets/data/data-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/data/test1.oel", "assets/data/test1.oel");
+			type.set ("assets/data/test1.oel", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/data/test1.oep", "assets/data/test1.oep");
+			type.set ("assets/data/test1.oep", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/images/player1.png", "assets/images/player1.png");
 			type.set ("assets/images/player1.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
