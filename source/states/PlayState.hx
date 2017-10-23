@@ -28,10 +28,10 @@ class PlayState extends FlxState
 
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
 
-		FlxG.camera.bgColor = FlxColor.ORANGE;
-		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
+		
+		//background = new FlxBackdrop(AssetPaths.wallpaper1__png);
 
-		add(background);
+		//add(background);
 		add(tilemapBricks);
 
 		player = new Player(100, 10);
@@ -43,7 +43,13 @@ class PlayState extends FlxState
 		add(player);
 		cameraSetup();
 	}
-
+	
+	function cameraSetup()
+	{
+		camera = new FlxCamera();
+		camera.follow(player);
+	}
+	
 	function levelSetup()
 	{
 		loader = new FlxOgmoLoader(AssetPaths.test1__oel);
@@ -53,33 +59,29 @@ class PlayState extends FlxState
 
 		loader.loadEntities(entityCreator, "enemies");
 
-		private function entityCreator(entityName:String, entityData:Xml)
+		
+	}
+	private function entityCreator(entityName:String, entityData:Xml)
 		{
 
 			var x:Int = Std.parseInt(entityData.get("x"));
-
 			var y:Int = Std.parseInt(entityData.get("y"));
 
 			switch (entityName)
 			{
-
 				case "gouhlfly":
 
-					var gouhl1:GouhlFly= new GouhlFly(x, y,AssetPaths.);
-
-					enemyPlanes.add(plane1);
-
-			}
-
-			function cameraSetup()
-			{
-				camera = new FlxCamera();
-				camera.follow(player);
-			}
-
-			override public function update(elapsed:Float):Void
-			{
-				super.update(elapsed);
-
+					var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl1__png);
+					groupGouhlfly.add(gouhl1);
 			}
 		}
+	function collisionDetect()
+	{
+		
+	}
+	
+	override public function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+	}
+}
