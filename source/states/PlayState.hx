@@ -29,9 +29,9 @@ class PlayState extends FlxState
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
 
 		
-		//background = new FlxBackdrop(AssetPaths.wallpaper1__png);
+		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
 
-		//add(background);
+		add(background);
 		add(tilemapBricks);
 
 		player = new Player(100, 10);
@@ -61,6 +61,7 @@ class PlayState extends FlxState
 
 		
 	}
+	
 	private function entityCreator(entityName:String, entityData:Xml)
 		{
 
@@ -70,7 +71,6 @@ class PlayState extends FlxState
 			switch (entityName)
 			{
 				case "gouhlfly":
-
 					var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl1__png);
 					groupGouhlfly.add(gouhl1);
 			}
