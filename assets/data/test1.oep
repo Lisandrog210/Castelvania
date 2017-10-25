@@ -16,7 +16,7 @@
     <Width>50000</Width>
     <Height>480</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\Lisandro\Desktop\lvltest\test1.oep</Filename>
+  <Filename>C:\Users\Lisandro\Desktop\Image\Desarrollo\castlevania\Castelvania\assets\data\test1.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -27,7 +27,7 @@
   <LevelValueDefinitions />
   <LayerDefinitions>
     <LayerDefinition xsi:type="TileLayerDefinition">
-      <Name>bricks</Name>
+      <Name>BRICKS</Name>
       <Grid>
         <Width>32</Width>
         <Height>32</Height>
@@ -41,8 +41,8 @@
     <LayerDefinition xsi:type="EntityLayerDefinition">
       <Name>enemies</Name>
       <Grid>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>64</Width>
+        <Height>64</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -53,7 +53,7 @@
   <Tilesets>
     <Tileset>
       <Name>bricks</Name>
-      <FilePath>lvlTEST.png</FilePath>
+      <FilePath>..\images\lvlTEST.png</FilePath>
       <TileSize>
         <Width>32</Width>
         <Height>32</Height>
@@ -64,14 +64,14 @@
   <EntityDefinitions>
     <EntityDefinition Name="gouhlfly" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
       <Size>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>64</Width>
+        <Height>64</Height>
       </Size>
       <Origin>
         <X>0</X>
         <Y>0</Y>
       </Origin>
-      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+      <ImageDefinition DrawMode="Image" ImagePath="..\images\gouhl2.png" Tiled="true">
         <RectColor A="255" R="255" G="0" B="0" />
       </ImageDefinition>
       <ValueDefinitions />

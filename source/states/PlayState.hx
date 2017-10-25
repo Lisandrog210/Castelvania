@@ -30,14 +30,14 @@ class PlayState extends FlxState
 
 		
 		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
-
+		levelSetup();
 		add(background);
 		add(tilemapBricks);
 
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
 
-		levelSetup();
+		
 
 		add(groupGouhlfly);
 		add(player);
@@ -54,7 +54,7 @@ class PlayState extends FlxState
 	{
 		loader = new FlxOgmoLoader(AssetPaths.test1__oel);
 
-		tilemapBricks = loader.loadTilemap(AssetPaths.lvlTEST__png, 32, 32, "bricks");
+		tilemapBricks = loader.loadTilemap(AssetPaths.lvlTEST__png,32,32,"BRICKS");
 		tilemapBricks.setTileProperties(0, FlxObject.NONE);
 
 		loader.loadEntities(entityCreator, "enemies");
@@ -71,7 +71,7 @@ class PlayState extends FlxState
 			switch (entityName)
 			{
 				case "gouhlfly":
-					var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl1__png);
+					var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
 					groupGouhlfly.add(gouhl1);
 			}
 		}
@@ -83,5 +83,7 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		
+		FlxG.collide(player, tilemapBricks);
 	}
 }
