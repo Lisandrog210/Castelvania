@@ -22,7 +22,6 @@ class Player extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
 		super(X, Y, SimpleGraphic);
-		//makeGraphic(20, 40, FlxColor.GREEN);
 		loadGraphic(AssetPaths.player1__png, true, 64, 64);
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
@@ -31,7 +30,7 @@ class Player extends FlxSprite
 		animation.add("run", [1,2,3,4,5], 8, true);
 		animation.add("jump", [9], 8, false);
 		animation.add("melee", [7,8], 8, false);
-		acceleration.y = 1600;
+		acceleration.y = 1200;
 		currentState = States.IDLE;
 		scale.set(0.5, 0.5);
 		updateHitbox();

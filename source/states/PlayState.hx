@@ -12,6 +12,7 @@ import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
+import flixel.system.FlxAssets.FlxGraphicAsset;
 
 class PlayState extends FlxState
 {
@@ -28,7 +29,6 @@ class PlayState extends FlxState
 
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
 
-		
 		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
 		levelSetup();
 		add(background);
@@ -37,19 +37,16 @@ class PlayState extends FlxState
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
 
-		
-
 		add(groupGouhlfly);
 		add(player);
 		cameraSetup();
 	}
-	
+
 	function cameraSetup()
 	{
-		camera = new FlxCamera();
-		camera.follow(player);
+		FlxG.camera.follow(player, FlxCameraFollowStyle.PLATFORMER);
 	}
-	
+
 	function levelSetup()
 	{
 		loader = new FlxOgmoLoader(AssetPaths.test1__oel);
@@ -59,31 +56,31 @@ class PlayState extends FlxState
 
 		loader.loadEntities(entityCreator, "enemies");
 
-		
 	}
-	
+
 	private function entityCreator(entityName:String, entityData:Xml)
+	{
+
+		var x:Int = Std.parseInt(entityData.get("x"));
+		var y:Int = Std.parseInt(entityData.get("y"));
+
+		switch (entityName)
 		{
-
-			var x:Int = Std.parseInt(entityData.get("x"));
-			var y:Int = Std.parseInt(entityData.get("y"));
-
-			switch (entityName)
-			{
-				case "gouhlfly":
-					var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
-					groupGouhlfly.add(gouhl1);
-			}
+			case "gouhlfly":
+				var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
+				groupGouhlfly.add(gouhl1);
+				
 		}
+	}
 	function collisionDetect()
 	{
-		
+
 	}
-	
+
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		
+
 		FlxG.collide(player, tilemapBricks);
 	}
 }
