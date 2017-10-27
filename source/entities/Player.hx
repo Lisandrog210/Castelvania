@@ -22,17 +22,17 @@ class Player extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
 		super(X, Y, SimpleGraphic);
-		loadGraphic(AssetPaths.player1__png, true, 64, 64);
+		loadGraphic(AssetPaths.player1__png, true, 40, 40);
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 
-		animation.add("idle", [1], 8, true);
-		animation.add("run", [1,2,3,4,5], 8, true);
-		animation.add("jump", [9], 8, false);
-		animation.add("melee", [7,8], 8, false);
+		animation.add("idle", [0], 8, true);
+		animation.add("run", [0,1,2], 8, true);
+		animation.add("jump", [3,4], 8, false);
+		animation.add("whip", [5,6,7], 8, false);
 		acceleration.y = 1200;
 		currentState = States.IDLE;
-		scale.set(0.5, 0.5);
+		//scale.set(0.5, 0.5);
 		updateHitbox();
 
 	}
@@ -83,12 +83,11 @@ class Player extends FlxSprite
 				}
 			case States.MELEE:
 				
-					animation.play("melee");
+					animation.play("whip");
 					if (animation.curAnim.curFrame == 1) 
 					{
 						currentState = States.IDLE;
-					}
-				
+					}				
 
 		}
 	}

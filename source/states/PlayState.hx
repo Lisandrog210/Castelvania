@@ -1,10 +1,12 @@
 package states;
 
 import entities.GouhlFly;
+import entities.Weapon;
 import flixel.FlxState;
 import entities.Player;
 import flixel.FlxSprite;
 import flixel.FlxG;
+import flixel.addons.weapon.FlxWeapon;
 import flixel.util.FlxColor;
 import flixel.FlxCamera;
 import flixel.addons.display.FlxBackdrop;
@@ -13,6 +15,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import entities.Weapon;
 
 class PlayState extends FlxState
 {
@@ -22,7 +25,11 @@ class PlayState extends FlxState
 	private var background:FlxBackdrop;
 	private var tilemapBricks:FlxTilemap;
 	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
-
+	private var whip:Weapon;
+	
+	
+	
+	
 	override public function create():Void
 	{
 		super.create();
@@ -34,9 +41,15 @@ class PlayState extends FlxState
 		add(background);
 		add(tilemapBricks);
 
+		FlxG.worldBounds.set(0, 0, tilemapBricks.width, tilemapBricks.height);
+		
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
-
+		
+		whip = new Weapon(player.width / 2, player.height / 2, AssetPaths.whip__png);
+		
+		add(whip);
+		whip.kill();
 		add(groupGouhlfly);
 		add(player);
 		cameraSetup();
@@ -69,18 +82,35 @@ class PlayState extends FlxState
 			case "gouhlfly":
 				var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
 				groupGouhlfly.add(gouhl1);
-				
+
 		}
 	}
 	function collisionDetect()
 	{
-
+		
+		FlxG.overlap(player, groupGouhlfly, collidePlayerGouhl);
+		
+	}
+	
+	function collidePlayerGouhl(e:FlxSprite,p:Player){
+			e.kill();
+			p.kill();
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-
+		collisionDetect();
 		FlxG.collide(player, tilemapBricks);
+		
 	}
-}
+	
+	/*function checkPlayerState(){
+		
+		player.currentState;
+		if () 
+		{
+			
+		}
+	}*/
+}	
