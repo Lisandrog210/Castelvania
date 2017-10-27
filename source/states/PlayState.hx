@@ -49,6 +49,7 @@ class PlayState extends FlxState
 		whip = new Weapon(player.width / 2, player.height / 2, AssetPaths.whip__png);
 		
 		add(whip);
+		
 		whip.kill();
 		add(groupGouhlfly);
 		add(player);
@@ -105,12 +106,7 @@ class PlayState extends FlxState
 		
 	}
 	
-	/*function checkPlayerState(){
+	function checkPlayerState(){
 		
-		player.currentState;
-		if () 
-		{
-			
-		}
-	}*/
+	}
 }	

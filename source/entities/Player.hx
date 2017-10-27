@@ -4,6 +4,8 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
 import flixel.FlxObject;
+import entities.Weapon;
+import flixel.FlxState;
 
 import flixel.util.FlxColor;
 
@@ -12,12 +14,13 @@ enum States
 	IDLE;
 	RUN;
 	JUMP;
-	MELEE;
+	WHIP;
 }
 
 class Player extends FlxSprite
 {
 	public var currentState(get, null):States;
+	public var whip:Weapon;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -33,8 +36,11 @@ class Player extends FlxSprite
 		acceleration.y = 1200;
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
-		updateHitbox();
-
+		//updateHitbox();
+		whip = new Weapon(x / 2, y / 2, AssetPaths.whip__png,);
+		whip.animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 12, false);
+		FlxG.state.add(whip);
+		whip.kill();
 	}
 
 	override public function update(elapsed:Float):Void
@@ -58,7 +64,7 @@ class Player extends FlxSprite
 					currentState = States.RUN;
 				if (FlxG.keys.justPressed.SPACE)
 				{
-					currentState = States.MELEE;
+					currentState = States.WHIP;
 				}
 			case States.RUN:
 				animation.play("run");
@@ -71,6 +77,10 @@ class Player extends FlxSprite
 					currentState = States.IDLE;
 			case States.JUMP:
 				animation.play("jump");
+				if (animation.curAnim.curFrame == 1) 
+				{
+					animation.curAnim.stop;
+				}
 				move();
 
 				if (velocity.y == 0)
@@ -81,11 +91,15 @@ class Player extends FlxSprite
 						currentState = States.RUN;
 
 				}
-			case States.MELEE:
+			case States.WHIP:
 				
 					animation.play("whip");
-					if (animation.curAnim.curFrame == 1) 
+					
+					
+					if (animation.curAnim.curFrame == 2) 
 					{
+						whip.reset(x / 2, y / 2);
+						whip.animation.play("whipAnim");
 						currentState = States.IDLE;
 					}				
 
