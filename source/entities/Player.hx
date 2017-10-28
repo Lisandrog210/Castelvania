@@ -37,8 +37,7 @@ class Player extends FlxSprite
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
 		//updateHitbox();
-		whip = new Whip();
-		whip.animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 12, false);
+		whip = new Whip();		
 		FlxG.state.add(whip);
 		whip.kill();
 		
@@ -55,7 +54,7 @@ class Player extends FlxSprite
 		switch (currentState)
 		{
 			case States.IDLE:
-				whip.kill();
+				
 				animation.play("idle");
 				move();
 				jump();
@@ -97,10 +96,12 @@ class Player extends FlxSprite
 					animation.play("whip");					
 					if (animation.curAnim.curFrame == 2) 
 					{						
-						whip.reset(x + width - 5, y + height - 35);
-						whip.animation.play("whipAnim");
-						if (whip.animation.finished) 
+						animation.curAnim.pause;
+						whip.reset(x + width - 6, y + height - 35);
+						
+						if (whip.get_currentframe() == 5) 
 						{
+							
 							whip.kill();							
 							currentState = States.IDLE;
 						}
