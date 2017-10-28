@@ -4,7 +4,7 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
 import flixel.FlxObject;
-import entities.Weapon;
+import entities.Whip;
 import flixel.FlxState;
 
 import flixel.util.FlxColor;
@@ -20,7 +20,7 @@ enum States
 class Player extends FlxSprite
 {
 	public var currentState(get, null):States;
-	public var whip:Weapon;
+	public var whip:Whip;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -37,10 +37,11 @@ class Player extends FlxSprite
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
 		//updateHitbox();
-		whip = new Weapon(x / 2, y / 2, AssetPaths.whip__png,);
-		whip.animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 12, false);
+		whip = new Whip(width /2+5, height/2);
+		
 		FlxG.state.add(whip);
 		whip.kill();
+		
 	}
 
 	override public function update(elapsed:Float):Void
@@ -54,6 +55,7 @@ class Player extends FlxSprite
 		switch (currentState)
 		{
 			case States.IDLE:
+				whip.kill();
 				animation.play("idle");
 				move();
 				jump();
@@ -92,17 +94,21 @@ class Player extends FlxSprite
 
 				}
 			case States.WHIP:
-				
-					animation.play("whip");
-					
-					
+					animation.play("whip");					
 					if (animation.curAnim.curFrame == 2) 
-					{
-						whip.reset(x / 2, y / 2);
-						whip.animation.play("whipAnim");
-						currentState = States.IDLE;
+					{						
+						whip.reset(x + width-5, y + height-35);
+						if (whip.) 
+						{
+							whip.kill();							
+							currentState = States.IDLE;		
+							
+						}
+						
+						
+								
+						
 					}				
-
 		}
 	}
 

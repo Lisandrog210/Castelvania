@@ -1,7 +1,7 @@
 package states;
 
 import entities.GouhlFly;
-import entities.Weapon;
+import entities.Whip;
 import flixel.FlxState;
 import entities.Player;
 import flixel.FlxSprite;
@@ -15,7 +15,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
 import flixel.system.FlxAssets.FlxGraphicAsset;
-import entities.Weapon;
+import entities.Whip;
 
 class PlayState extends FlxState
 {
@@ -25,7 +25,7 @@ class PlayState extends FlxState
 	private var background:FlxBackdrop;
 	private var tilemapBricks:FlxTilemap;
 	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
-	private var whip:Weapon;
+	private var whip:Whip;
 	
 	
 	
@@ -46,11 +46,9 @@ class PlayState extends FlxState
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
 		
-		whip = new Weapon(player.width / 2, player.height / 2, AssetPaths.whip__png);
 		
-		add(whip);
 		
-		whip.kill();
+		
 		add(groupGouhlfly);
 		add(player);
 		cameraSetup();
