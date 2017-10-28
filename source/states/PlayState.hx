@@ -15,7 +15,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
 import flixel.system.FlxAssets.FlxGraphicAsset;
-import entities.Whip;
+
 
 class PlayState extends FlxState
 {
@@ -25,7 +25,7 @@ class PlayState extends FlxState
 	private var background:FlxBackdrop;
 	private var tilemapBricks:FlxTilemap;
 	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
-	private var whip:Whip;
+	
 	
 	
 	
@@ -45,9 +45,6 @@ class PlayState extends FlxState
 		
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
-		
-		
-		
 		
 		add(groupGouhlfly);
 		add(player);

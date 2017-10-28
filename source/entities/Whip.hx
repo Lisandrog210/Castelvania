@@ -11,14 +11,14 @@ class Whip extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		loadGraphic(AssetPaths.whip__png, true, 32, 32);
-		animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 12, false);
-		animation.play("whipAnim");
+		animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 20, false);
+		
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		
+		animation.play("whipAnim");
 		currentframe = animation.curAnim.curFrame;
 
 	}
