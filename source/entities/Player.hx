@@ -32,15 +32,15 @@ class Player extends FlxSprite
 		animation.add("idle", [0], 8, true);
 		animation.add("run", [0,1,2], 8, true);
 		animation.add("jump", [3,4], 8, false);
-		animation.add("whip", [5,6,7], 8, false);
+		animation.add("whip", [5,6,7,7,7,7,7,7], 16, false);
 		acceleration.y = 1200;
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
 		//updateHitbox();
-		whip = new Whip(x + width - 6, y + height - 35);		
+		whip = new Whip(x + width - 6, y + height - 35);
 		FlxG.state.add(whip);
 		whip.kill();
-		
+
 	}
 
 	override public function update(elapsed:Float):Void
@@ -54,7 +54,7 @@ class Player extends FlxSprite
 		switch (currentState)
 		{
 			case States.IDLE:
-				
+
 				whip.kill();
 				animation.play("idle");
 				move();
@@ -79,7 +79,7 @@ class Player extends FlxSprite
 					currentState = States.IDLE;
 			case States.JUMP:
 				animation.play("jump");
-				if (animation.curAnim.curFrame == 1) 
+				if (animation.curAnim.curFrame == 1)
 				{
 					animation.curAnim.stop;
 				}
@@ -94,16 +94,28 @@ class Player extends FlxSprite
 
 				}
 			case States.WHIP:
-					animation.play("whip");					
-					if (animation.curAnim.curFrame == 2) 
-					{					
+				if (animation.name != "whip")
+				{
+					animation.play("whip");
+				}
+
+				if (animation.curAnim.curFrame == 2)
+				{
+					Whip.pFacing = facing;
+					if (facing==FlxObject.RIGHT)
+					{						
 						whip.reset(x + width - 6, y + height - 35);
-						
-						if (whip.get_currentframe() == 5) 
-						{							
-							currentState = States.IDLE;							
-						}
-					}				
+					}
+					else
+					{						
+						whip.reset(x - width + 6, y + height - 35);					
+					}			
+
+				}
+				if (animation.name == "whip" && animation.finished)
+				{
+					currentState = States.IDLE;
+				}
 		}
 	}
 

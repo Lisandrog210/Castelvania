@@ -92,6 +92,8 @@ class PlayState extends FlxState
 			e.kill();
 			p.kill();
 	}
+	
+	
 
 	override public function update(elapsed:Float):Void
 	{
