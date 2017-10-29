@@ -15,6 +15,9 @@ enum States
 	RUN;
 	JUMP;
 	WHIP;
+	CROUCH;
+	THROW;
+	IMMORTAL;
 }
 
 class Player extends FlxSprite
@@ -84,6 +87,10 @@ class Player extends FlxSprite
 					animation.curAnim.stop;
 				}
 				move();
+				if (FlxG.keys.justPressed.SPACE)
+				{
+					currentState = States.WHIP;
+				}
 
 				if (velocity.y == 0)
 				{

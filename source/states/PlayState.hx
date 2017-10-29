@@ -2,6 +2,7 @@ package states;
 
 import entities.GouhlFly;
 import entities.Whip;
+import flixel.FlxBasic;
 import flixel.FlxState;
 import entities.Player;
 import flixel.FlxSprite;
@@ -25,11 +26,7 @@ class PlayState extends FlxState
 	private var background:FlxBackdrop;
 	private var tilemapBricks:FlxTilemap;
 	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
-	
-	
-	
-	
-	
+		
 	override public function create():Void
 	{
 		super.create();
@@ -81,19 +78,18 @@ class PlayState extends FlxState
 
 		}
 	}
+	
 	function collisionDetect()
 	{
 		
 		FlxG.overlap(player, groupGouhlfly, collidePlayerGouhl);
-		
 	}
 	
-	function collidePlayerGouhl(e:FlxSprite,p:Player){
+	function collidePlayerGouhl(e:FlxSprite, p:Player)
+	{
 			e.kill();
 			p.kill();
-	}
-	
-	
+	}	
 
 	override public function update(elapsed:Float):Void
 	{
