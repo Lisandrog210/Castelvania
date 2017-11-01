@@ -83,6 +83,13 @@ class PlayState extends FlxState
 	{
 		
 		FlxG.overlap(player, groupGouhlfly, collidePlayerGouhl);
+		FlxG.overlap(player.whip, groupGouhlfly, collideWhipGouhl);
+	}
+	
+	function collideWhipGouhl(e:FlxSprite, w:FlxSprite) 
+	{
+		//e.kill();
+		w.kill();
 	}
 	
 	function collidePlayerGouhl(e:FlxSprite, p:Player)

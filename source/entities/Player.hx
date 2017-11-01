@@ -15,9 +15,9 @@ enum States
 	RUN;
 	JUMP;
 	WHIP;
-	CROUCH;
-	THROW;
-	IMMORTAL;
+	//CROUCH;
+	//THROW;
+	//IMMORTAL;
 }
 
 class Player extends FlxSprite
