@@ -50,6 +50,16 @@ class Player extends FlxSprite
 	{
 		stateMachine();
 		super.update(elapsed);
+		
+		Whip.pFacing = facing;
+					if (facing==FlxObject.RIGHT)
+					{						
+						whip.setPosition(x + width - 6, y + height - 35);
+					}
+					else
+					{						
+						whip.setPosition(x - width + 6, y + height - 35);					
+					}
 	}
 
 	private function stateMachine() : Void
@@ -75,11 +85,15 @@ class Player extends FlxSprite
 				animation.play("run");
 				move();
 				jump();
-
+				if (FlxG.keys.justPressed.SPACE)
+				{
+					currentState = States.WHIP;
+				}
 				if (velocity.y != 0)
 					currentState = States.JUMP;
 				else if (velocity.x == 0)
 					currentState = States.IDLE;
+					
 			case States.JUMP:
 				animation.play("jump");
 				if (animation.curAnim.curFrame == 1)
@@ -103,9 +117,10 @@ class Player extends FlxSprite
 			case States.WHIP:
 				if (animation.name != "whip")
 				{
+					velocity.x = 0;
 					animation.play("whip");
 				}
-
+				jump();
 				if (animation.curAnim.curFrame == 2)
 				{
 					Whip.pFacing = facing;
@@ -151,4 +166,6 @@ class Player extends FlxSprite
 	{
 		return currentState;
 	}
+	
+	
 }

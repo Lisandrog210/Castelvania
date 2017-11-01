@@ -1,5 +1,6 @@
 package entities;
 
+import entities.Player;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
@@ -24,5 +25,6 @@ class Whip extends FlxSprite
 		super.update(elapsed);
 		animation.play("whipAnim");
 		facing = pFacing;
+		
 	}
 }
