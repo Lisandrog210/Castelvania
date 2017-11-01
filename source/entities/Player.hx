@@ -30,14 +30,15 @@ class Player extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
 		super(X, Y, SimpleGraphic);
-		loadGraphic(AssetPaths.player1__png, true, 40, 40);
+		loadGraphic(AssetPaths.player__png, true, 40, 40);
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 
 		animation.add("idle", [0], 8, true);
 		animation.add("run", [0,1,2], 8, true);
 		animation.add("jump", [3,4], 8, false);
-		animation.add("whip", [5,6,7,7,7,7,7,7], 16, false);
+		animation.add("whip", [5, 6, 9, 9, 9, 9, 9, 9], 16, false);
+		animation.add("throw", [7,8,9], 16, false);
 		acceleration.y = 1200;
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
@@ -90,6 +91,7 @@ class Player extends FlxSprite
 				{
 					currentState = States.WHIP;
 				}
+				
 			case States.RUN:
 				animation.play("run");
 				move();
@@ -106,9 +108,7 @@ class Player extends FlxSprite
 					currentState = States.JUMP;
 				else if (velocity.x == 0)
 					currentState = States.IDLE;
-					
-					
-					
+										
 			case States.JUMP:
 				animation.play("jump");
 				if (animation.curAnim.curFrame == 1)
@@ -132,6 +132,7 @@ class Player extends FlxSprite
 				{
 					currentState = States.THROW;
 				}	
+				
 			case States.WHIP:
 				if (animation.name != "whip")
 				{
@@ -156,25 +157,39 @@ class Player extends FlxSprite
 				{
 					currentState = States.IDLE;
 				}
-			case States.THROW:
-				velocity.x = 0;
-				kunai.kFacing = facing;
-					if (facing==FlxObject.RIGHT)
-					{						
-						kunai.reset(x + width - 6, y + height - 20);
-					}
-					else
-					{						
-						kunai.reset(x - width + 6, y + height - 20);					
-					}
-				currentState = States.IDLE;	
-
 				
+			case States.THROW:
+				if (animation.name != "throw")
+				{
+					velocity.x = 0;
+					animation.play("throw");
+				}
+				jump();
+				if (animation.curAnim.curFrame == 2)
+				{
+					kunai.kFacing = facing;
+					if (kunai.alive == false) 
+					{					
+						if (facing==FlxObject.RIGHT)
+						{						
+							kunai.reset(x + width - 6, y + height - 20);
+						}
+						else
+						{						
+							kunai.reset(x - width + 6, y + height - 20);					
+						}
+					
+					}
+				}
+				if (animation.name == "throw" && animation.finished)
+				{
+					currentState = States.IDLE;
+				}			
 			
 		}
 	}
 
-	private function move():Void
+	function move():Void
 	{
 		velocity.x = 0;
 
@@ -189,7 +204,7 @@ class Player extends FlxSprite
 			facing = FlxObject.RIGHT;
 	}
 
-	private function jump():Void
+	function jump():Void
 	{
 		if (FlxG.keys.justPressed.UP && isTouching(FlxObject.FLOOR))
 			velocity.y = -300;

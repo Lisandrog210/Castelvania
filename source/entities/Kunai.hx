@@ -32,10 +32,10 @@ class Kunai extends FlxSprite
 	{
 		if (facing == FlxObject.RIGHT) 
 		{
-			velocity.x += 100;
+			velocity.x += 20;
 		} else 
 		{
-			velocity.x -= 100;
+			velocity.x -= 20;
 		}
 	}
 	function limit() 
@@ -43,7 +43,11 @@ class Kunai extends FlxSprite
 		if (x > camera.scroll.x + FlxG.width - width) 
 		{
 			this.kill();
-		}
-	}
+		} else if (x < camera.scroll.x)
+			{
+				this.kill(); 
+				
+			}
+	}	
 	
 }
