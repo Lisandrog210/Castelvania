@@ -6,6 +6,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import entities.Whip;
 import flixel.FlxState;
+import entities.Kunai;
 
 import flixel.util.FlxColor;
 
@@ -16,7 +17,7 @@ enum States
 	JUMP;
 	WHIP;
 	//CROUCH;
-	//THROW;
+	THROW;
 	//IMMORTAL;
 }
 
@@ -24,6 +25,7 @@ class Player extends FlxSprite
 {
 	public var currentState(get, null):States;
 	public var whip:Whip;
+	public var kunai:Kunai;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -40,9 +42,12 @@ class Player extends FlxSprite
 		currentState = States.IDLE;
 		//scale.set(0.5, 0.5);
 		//updateHitbox();
-		whip = new Whip(x + width - 6, y + height - 35);
+		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
+		kunai = new Kunai();
+		FlxG.state.add(kunai);
+		kunai.kill();
 
 	}
 
@@ -72,6 +77,10 @@ class Player extends FlxSprite
 				animation.play("idle");
 				move();
 				jump();
+				if (FlxG.keys.justPressed.Z) 
+				{
+					currentState = States.THROW;
+				}
 
 				if (velocity.y != 0)
 					currentState = States.JUMP;
@@ -85,6 +94,10 @@ class Player extends FlxSprite
 				animation.play("run");
 				move();
 				jump();
+				if (FlxG.keys.justPressed.Z) 
+				{
+					currentState = States.THROW;
+				}
 				if (FlxG.keys.justPressed.SPACE)
 				{
 					currentState = States.WHIP;
@@ -93,6 +106,8 @@ class Player extends FlxSprite
 					currentState = States.JUMP;
 				else if (velocity.x == 0)
 					currentState = States.IDLE;
+					
+					
 					
 			case States.JUMP:
 				animation.play("jump");
@@ -112,8 +127,11 @@ class Player extends FlxSprite
 						currentState = States.IDLE;
 					else
 						currentState = States.RUN;
-
 				}
+				if (FlxG.keys.justPressed.Z) 
+				{
+					currentState = States.THROW;
+				}	
 			case States.WHIP:
 				if (animation.name != "whip")
 				{
@@ -138,6 +156,21 @@ class Player extends FlxSprite
 				{
 					currentState = States.IDLE;
 				}
+			case States.THROW:
+				velocity.x = 0;
+				kunai.kFacing = facing;
+					if (facing==FlxObject.RIGHT)
+					{						
+						kunai.reset(x + width - 6, y + height - 20);
+					}
+					else
+					{						
+						kunai.reset(x - width + 6, y + height - 20);					
+					}
+				currentState = States.IDLE;	
+
+				
+			
 		}
 	}
 

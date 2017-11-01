@@ -20,7 +20,7 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 
 class PlayState extends FlxState
 {
-
+	private var hud:FlxSprite;
 	private var player:Player;
 	private var loader:FlxOgmoLoader;
 	private var background:FlxBackdrop;
@@ -32,11 +32,17 @@ class PlayState extends FlxState
 		super.create();
 
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
-
+		hud = new FlxSprite(0, 0);
+		hud.makeGraphic(256, 30, FlxColor.BLACK);
+		hud.scrollFactor.set(0, 0);
 		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
+		
 		levelSetup();
+		
 		add(background);
+		
 		add(tilemapBricks);
+		add(hud);
 
 		FlxG.worldBounds.set(0, 0, tilemapBricks.width, tilemapBricks.height);
 		
