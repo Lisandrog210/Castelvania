@@ -1,6 +1,7 @@
 package states;
 
 import entities.GouhlFly;
+import entities.Kunai;
 import entities.Whip;
 import flixel.FlxBasic;
 import flixel.FlxState;
@@ -90,6 +91,7 @@ class PlayState extends FlxState
 		
 		FlxG.overlap(player, groupGouhlfly, collidePlayerGouhl);
 		FlxG.overlap(player.whip, groupGouhlfly, collideWhipGouhl);
+		FlxG.overlap(player.kunai, groupGouhlfly, collideKunaiGouhl);
 	}
 	
 	function collideWhipGouhl(e:FlxSprite, w:FlxSprite) 
@@ -103,6 +105,11 @@ class PlayState extends FlxState
 			e.kill();
 			p.kill();
 	}	
+	function collideKunaiGouhl(e:FlxSprite, k:Kunai)
+	{
+		e.kill();
+		k.kill();
+	}
 
 	override public function update(elapsed:Float):Void
 	{
