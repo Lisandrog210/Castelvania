@@ -515,7 +515,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "394",
+			build: "403",
 			company: "Lisandro",
 			file: "Castlevania",
 			fps: 60,

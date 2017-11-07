@@ -24,8 +24,8 @@ class PlayState extends FlxState
 	private var hud:FlxSprite;
 	private var player:Player;
 	private var loader:FlxOgmoLoader;
-	private var background:FlxBackdrop;
-	private var tilemapBricks:FlxTilemap;
+	
+	private var tilemap:FlxTilemap;
 	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
 		
 	override public function create():Void
@@ -35,17 +35,13 @@ class PlayState extends FlxState
 		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
 		hud = new FlxSprite(0, 0);
 		hud.makeGraphic(256, 30, FlxColor.BLACK);
-		hud.scrollFactor.set(0, 0);
-		background = new FlxBackdrop(AssetPaths.wallpaper1__png);
+		hud.scrollFactor.set(0, 0);	
 		
-		levelSetup();
-		
-		add(background);
-		
-		add(tilemapBricks);
+		levelSetup();		
+		add(tilemap);
 		add(hud);
 
-		FlxG.worldBounds.set(0, 0, tilemapBricks.width, tilemapBricks.height);
+		FlxG.worldBounds.set(0, 0, tilemap.width, tilemap.height);
 		
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
@@ -62,12 +58,14 @@ class PlayState extends FlxState
 
 	function levelSetup()
 	{
-		loader = new FlxOgmoLoader(AssetPaths.test1__oel);
+		loader = new FlxOgmoLoader(AssetPaths.MapaTerminadoBien__oel);
 
-		tilemapBricks = loader.loadTilemap(AssetPaths.lvlTEST__png,32,32,"BRICKS");
-		tilemapBricks.setTileProperties(0, FlxObject.NONE);
+		tilemap = loader.loadTilemap(AssetPaths.tilemap__png,32,32,"walls");
+		tilemap.setTileProperties(0, FlxObject.NONE);
+		tilemap.setTileProperties(9, FlxObject.NONE);
+		
 
-		loader.loadEntities(entityCreator, "enemies");
+		loader.loadEntities(entityCreator, "entities");
 
 	}
 
@@ -115,7 +113,7 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 		collisionDetect();
-		FlxG.collide(player, tilemapBricks);
+		FlxG.collide(player, tilemap);
 		
 	}
 	
