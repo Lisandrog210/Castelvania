@@ -3,10 +3,6 @@ package entities;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-/**
- * ...
- * @author Lisandro
- */
 class Slave extends FlxSprite 
 {
 
@@ -17,3 +13,4 @@ class Slave extends FlxSprite
 	}
 	
 }
+

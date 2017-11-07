@@ -1,7 +1,7 @@
 package states;
 
 import entities.Linyera;
-import entities.Isis
+import entities.Isis;
 import entities.Gorro;
 import entities.GouhlFly;
 import entities.Kunai;
@@ -32,11 +32,11 @@ class PlayState extends FlxState
 	private var loader:FlxOgmoLoader;	
 	private var tilemap:FlxTilemap;	
 	private var groupGorro:FlxTypedGroup<Gorro>;
-	private var groupSlave:FlxTypedGroup<Slave>();
-	private var groupIsis:FlxTypedGroup<Isis>();
-	private var groupLinyera:FlxTypedGroup<Linyera>();
-	private var groupTrap:FlxTypedGroup<Trap>();
-	private var groupPlatform:FlxTypedGroup<Platform>();
+	private var groupSlave:FlxTypedGroup<Slave>;
+	private var groupIsis:FlxTypedGroup<Isis>;
+	private var groupLinyera:FlxTypedGroup<Linyera>;
+	private var groupTrap:FlxTypedGroup<Trap>;
+	private var groupPlatform:FlxTypedGroup<Platform>;
 
 		
 	override public function create():Void
@@ -77,16 +77,16 @@ class PlayState extends FlxState
 	
 	function enemiesAtacks() 
 	{
-		gorroChase();
+		//gorroChase();
 	}
 	
-	function gorroChase() 
+	/*function gorroChase() 
 	{
 		if (gorro1) 
 		{
 			
 		}
-	}
+	}*/
 
 	function cameraSetup()
 	{
@@ -140,8 +140,8 @@ class PlayState extends FlxState
 	{
 		
 		FlxG.overlap(player, groupGorro, collidePlayerGorro);
-		FlxG.overlap(player.whip, groupGouhlfly, collideWhipGorro);
-		FlxG.overlap(player.kunai, groupGouhlfly, collideKunaiGorro);
+		FlxG.overlap(player.whip, groupGorro, collideWhipGorro);
+		FlxG.overlap(player.kunai, groupGorro, collideKunaiGorro);
 	}
 	
 	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
