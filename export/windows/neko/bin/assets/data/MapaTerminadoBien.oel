@@ -69,6 +69,10 @@
     <Musulman id="36" x="2144" y="432" />
     <Musulman id="37" x="1376" y="368" />
     <vidasJugador id="38" x="768" y="432" />
+    <Lingera id="39" x="928" y="368" />
+    <Lingera id="40" x="1312" y="368" />
+    <Lingera id="41" x="1680" y="368" />
+    <Lingera id="42" x="2144" y="336" />
     <vidasJugador id="43" x="2208" y="352" />
     <EnemigoNegro id="44" x="1968" y="432" />
     <EnemigoNegro id="45" x="2208" y="432" />
@@ -80,11 +84,5 @@
     <vidasJugador id="51" x="2624" y="256" />
     <Plataforma id="52" x="1872" y="384" />
     <Plataforma id="53" x="2224" y="384" />
-    <Linyera id="39" x="1664" y="384" />
-    <Linyera id="40" x="928" y="384" />
-    <Gorro id="41" x="2080" y="208" />
-    <Gorro id="42" x="1760" y="208" />
-    <Gorro id="54" x="1280" y="208" />
-    <Gorro id="55" x="944" y="208" />
   </entities>
 </level>
