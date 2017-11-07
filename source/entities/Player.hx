@@ -39,10 +39,10 @@ class Player extends FlxSprite
 		animation.add("jump", [3,4], 8, false);
 		animation.add("whip", [5, 6, 9, 9, 9, 9, 9, 9], 16, false);
 		animation.add("throw", [7,8,9], 16, false);
-		acceleration.y = 1200;
+		acceleration.y = 1000;
 		currentState = States.IDLE;
-		//scale.set(0.5, 0.5);
-		//updateHitbox();
+		scale.set(1.5,1.5);
+		updateHitbox();
 		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
