@@ -50,6 +50,20 @@ class PlayState extends FlxState
 		add(groupGouhlfly);
 		add(player);
 		cameraSetup();
+		enemiesAtacks();
+	}
+	
+	function enemiesAtacks() 
+	{
+		gorroChase();
+	}
+	
+	function gorroChase() 
+	{
+		if (gorro1) 
+		{
+			
+		}
 	}
 
 	function cameraSetup()
@@ -83,7 +97,8 @@ class PlayState extends FlxState
 				groupGouhlfly.add(gouhl1);
 				
 			case "Gorro":
-				var gorro1:Gorro = new Gorro(x,y, AssetPaths.
+				var gorro1:Gorro = new Gorro(x, y, AssetPaths.
+				groupGorro.add(
 
 		}
 	}
