@@ -6,10 +6,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 
-/**
- * ...
- * @author ...
- */
+
 class Manu extends FlxState 
 {
 	private var PlayButton:FlxButton;
@@ -28,7 +25,7 @@ class Manu extends FlxState
 		Text = new FlxText(15, 50, FlxG.width, "Press 'Space' to continue");
 		add(Text);
 		
-		Text2 = new FlxText(5, 90, FlxG.width, "Created by: Agustin DiMartino, Lisandro Guevara, Garcia Agustin ");
+		Text2 = new FlxText(5, 90, FlxG.width, "Created by: Agustin DiMartino, Lisandro Guevara, Agustin García");
 		Text2.setFormat(null, 8);
 		add(Text2);
 	}

@@ -1,8 +1,13 @@
 package states;
 
+import entities.Linyera;
+import entities.Isis
 import entities.Gorro;
 import entities.GouhlFly;
 import entities.Kunai;
+import entities.Platform;
+import entities.Slave;
+import entities.Trap;
 import entities.Whip;
 import flixel.FlxBasic;
 import flixel.FlxState;
@@ -24,16 +29,28 @@ class PlayState extends FlxState
 {
 	private var hud:FlxSprite;
 	private var player:Player;
-	private var loader:FlxOgmoLoader;
-	
-	private var tilemap:FlxTilemap;
-	private var groupGouhlfly:FlxTypedGroup<GouhlFly>;
+	private var loader:FlxOgmoLoader;	
+	private var tilemap:FlxTilemap;	
+	private var groupGorro:FlxTypedGroup<Gorro>;
+	private var groupSlave:FlxTypedGroup<Slave>();
+	private var groupIsis:FlxTypedGroup<Isis>();
+	private var groupLinyera:FlxTypedGroup<Linyera>();
+	private var groupTrap:FlxTypedGroup<Trap>();
+	private var groupPlatform:FlxTypedGroup<Platform>();
+
 		
 	override public function create():Void
 	{
 		super.create();
-
-		groupGouhlfly = new FlxTypedGroup<GouhlFly>();
+		
+		groupSlave = new FlxTypedGroup<Slave>();
+		groupIsis = new FlxTypedGroup<Isis>();
+		groupLinyera = new FlxTypedGroup<Linyera>();
+		groupGorro = new FlxTypedGroup<Gorro>();
+		groupTrap = new FlxTypedGroup<Trap>();
+		groupPlatform = new FlxTypedGroup<Platform>();
+		
+		
 		hud = new FlxSprite(0, 0);
 		hud.makeGraphic(256, 30, FlxColor.BLACK);
 		hud.scrollFactor.set(0, 0);	
@@ -47,7 +64,12 @@ class PlayState extends FlxState
 		player = new Player(100, 10);
 		player.pixelPerfectPosition = false;
 		
-		add(groupGouhlfly);
+		add(groupTrap);
+		add(groupSlave);
+		add(groupPlatform);
+		add(groupLinyera);
+		add(groupIsis);
+		add(groupGorro);
 		add(player);
 		cameraSetup();
 		enemiesAtacks();
@@ -92,13 +114,24 @@ class PlayState extends FlxState
 
 		switch (entityName)
 		{
-			case "gouhlfly":
-				var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
-				groupGouhlfly.add(gouhl1);
-				
 			case "Gorro":
-				var gorro1:Gorro = new Gorro(x, y, AssetPaths.
-				groupGorro.add(
+				var gorro1:Gorro = new Gorro(x, y, AssetPaths.gorro__png);
+				groupGorro.add(gorro1);
+			case "EnemigoNegro":
+				var slave1:Slave = new Slave(x, y, AssetPaths.slave__png);
+				groupSlave.add(slave1);
+			case "Linyera":
+				var linyera1:Linyera = new Linyera(x, y, AssetPaths.linyera__png);
+				groupLinyera.add(linyera1);
+			case "Musulman":
+				var isis1:Isis = new Isis(x, y, AssetPaths.isis__png);
+				groupIsis.add(isis1);
+			case "Plataforma":
+				var platform1:Platform = new Platform(x, y, AssetPaths.platform__png);
+				groupPlatform.add(platform1);
+			case "Pinchos":
+				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
+				groupTrap.add(trap1);
 
 		}
 	}
@@ -106,23 +139,23 @@ class PlayState extends FlxState
 	function collisionDetect()
 	{
 		
-		FlxG.overlap(player, groupGouhlfly, collidePlayerGouhl);
-		FlxG.overlap(player.whip, groupGouhlfly, collideWhipGouhl);
-		FlxG.overlap(player.kunai, groupGouhlfly, collideKunaiGouhl);
+		FlxG.overlap(player, groupGorro, collidePlayerGorro);
+		FlxG.overlap(player.whip, groupGouhlfly, collideWhipGorro);
+		FlxG.overlap(player.kunai, groupGouhlfly, collideKunaiGorro);
 	}
 	
-	function collideWhipGouhl(e:FlxSprite, w:FlxSprite) 
+	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
 	{
 		//e.kill();
 		w.kill();
 	}
 	
-	function collidePlayerGouhl(e:FlxSprite, p:Player)
+	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
 			e.kill();
 			p.kill();
 	}	
-	function collideKunaiGouhl(e:FlxSprite, k:Kunai)
+	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
 		e.kill();
 		k.kill();

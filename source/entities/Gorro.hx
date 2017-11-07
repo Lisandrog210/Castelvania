@@ -12,7 +12,7 @@ class Gorro extends FlxSprite
 		loadGraphic(AssetPaths.gorro, true, 32,32);
 		animation.add("fly", [0, 1, 2, 3], 8, true);
 		animation.play("fly");
-		this.
+		
 	}
 	
 	override public function update(elapsed:Float):Void 
