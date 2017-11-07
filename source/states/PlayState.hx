@@ -1,5 +1,6 @@
 package states;
 
+import entities.Gorro;
 import entities.GouhlFly;
 import entities.Kunai;
 import entities.Whip;
@@ -80,6 +81,9 @@ class PlayState extends FlxState
 			case "gouhlfly":
 				var gouhl1:GouhlFly = new GouhlFly(x, y, AssetPaths.gouhl2__png);
 				groupGouhlfly.add(gouhl1);
+				
+			case "Gorro":
+				var gorro1:Gorro = new Gorro(x,y, AssetPaths.
 
 		}
 	}
