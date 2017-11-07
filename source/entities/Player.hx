@@ -33,7 +33,7 @@ class Player extends FlxSprite
 		loadGraphic(AssetPaths.player__png, true, 40, 40);
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
-
+		
 		animation.add("idle", [0], 8, true);
 		animation.add("run", [0,1,2], 8, true);
 		animation.add("jump", [3,4], 8, false);
@@ -55,6 +55,8 @@ class Player extends FlxSprite
 	override public function update(elapsed:Float):Void
 	{
 		stateMachine();
+		Reg.PlayerPosX = x;
+		Reg.PlayerPosY = y;
 		super.update(elapsed);
 		
 		Whip.pFacing = facing;
@@ -73,7 +75,7 @@ class Player extends FlxSprite
 		switch (currentState)
 		{
 			case States.IDLE:
-
+			
 				whip.kill();
 				animation.play("idle");
 				move();
@@ -82,7 +84,7 @@ class Player extends FlxSprite
 				{
 					currentState = States.THROW;
 				}
-
+				
 				if (velocity.y != 0)
 					currentState = States.JUMP;
 				else if (velocity.x != 0)
@@ -151,8 +153,9 @@ class Player extends FlxSprite
 					{						
 						whip.reset(x - width + 6, y + height - 35);					
 					}			
-
+					
 				}
+				
 				if (animation.name == "whip" && animation.finished)
 				{
 					currentState = States.IDLE;

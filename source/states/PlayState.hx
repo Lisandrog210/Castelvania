@@ -72,21 +72,7 @@ class PlayState extends FlxState
 		add(groupGorro);
 		add(player);
 		cameraSetup();
-		enemiesAtacks();
 	}
-	
-	function enemiesAtacks() 
-	{
-		//gorroChase();
-	}
-	
-	/*function gorroChase() 
-	{
-		if (gorro1) 
-		{
-			
-		}
-	}*/
 
 	function cameraSetup()
 	{
@@ -108,10 +94,10 @@ class PlayState extends FlxState
 
 	private function entityCreator(entityName:String, entityData:Xml)
 	{
-
+		
 		var x:Int = Std.parseInt(entityData.get("x"));
 		var y:Int = Std.parseInt(entityData.get("y"));
-
+		
 		switch (entityName)
 		{
 			case "Gorro":
@@ -132,7 +118,7 @@ class PlayState extends FlxState
 			case "Pinchos":
 				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
 				groupTrap.add(trap1);
-
+			
 		}
 	}
 	

@@ -5,6 +5,9 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 
 class Gorro extends FlxSprite 
 {
+	private var counter: Int = 0;
+	private var velMaxY: Int = 80;
+	private var shot: Enemyshot;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -18,12 +21,27 @@ class Gorro extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		move();
+		movement();
+		shoot();
 	}
 	
-	function move() 
+	function shoot() 
 	{
-		
+		if (counter == 10) 
+		{
+			shot = new Enemyshot(x, y, 1);
+		}
 	}
 	
+	function movement() 
+	{
+		counter++;
+		velocity.x = -20;
+		if (counter == 30)
+		{
+			velMaxY *= -1;
+			velocity.y = velMaxY;
+			counter = 0;
+		}
+	}
 }

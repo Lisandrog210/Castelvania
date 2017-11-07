@@ -14,5 +14,22 @@ class Slave extends FlxSprite
 		animation.play("walk");
 	}
 	
+	override public function update(elapsed:Float):Void 
+	{
+		super.update(elapsed);
+		movement();
+	}
+	
+	function movement() 
+	{
+		if (x < Reg.PlayerPosX) 
+		{
+			velocity.set(100, 0);
+		}
+		else 
+		{
+			velocity.set(-100, 0);
+		}
+	}
 }
 
