@@ -73,24 +73,30 @@ class PlayState extends FlxState
 		add(groupGorro);
 		add(player);
 		cameraSetup();
+		
+		if (FlxG.sound.music == null)
+		{
+			FlxG.sound.playMusic(AssetPaths.Castlevania__wav, 1, true);
+		}
+		
 	}
 
 	function cameraSetup()
 	{
-		FlxG.camera.follow(player, FlxCameraFollowStyle.PLATFORMER);
+		FlxG.camera.follow(player);
 	}
 
 	function levelSetup()
 	{
 		loader = new FlxOgmoLoader(AssetPaths.lvl1__oel);
-
+		
 		tilemap = loader.loadTilemap(AssetPaths.tilemap__png,32,32,"walls");
 		tilemap.setTileProperties(0, FlxObject.NONE);
 		tilemap.setTileProperties(5, FlxObject.NONE);
 		
-
+		
 		loader.loadEntities(entityCreator, "entities");
-
+		
 	}
 
 	private function entityCreator(entityName:String, entityData:Xml)
@@ -143,8 +149,8 @@ class PlayState extends FlxState
 	
 	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
-			e.kill();
-			p.kill();
+		e.kill();
+		p.kill();
 	}	
 	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
