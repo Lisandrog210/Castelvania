@@ -149,6 +149,7 @@ class PlayState extends FlxState
 		FlxG.overlap(player.whip, groupSlave, collideWhipSlave);
 		FlxG.overlap(player.kunai, groupSlave, collideKunaiSlave);
 		
+		FlxG.collide(player, groupPlatform);
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
@@ -220,12 +221,12 @@ class PlayState extends FlxState
 		super.update(elapsed);
 		collisionDetect();
 		FlxG.collide(player, tilemap);
-		/*FlxG.collide(groupTrap, tilemap);
+		FlxG.collide(groupTrap, tilemap);
 		FlxG.collide(groupSlave, tilemap);
 		FlxG.collide(groupGorro, tilemap);
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
-		FlxG.collide(groupLinyera, tilemap);*/
+		FlxG.collide(groupLinyera, tilemap);
 		
 	}
 	

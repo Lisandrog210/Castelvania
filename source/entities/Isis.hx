@@ -23,7 +23,7 @@ class Isis extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		movement();
+		//movement();
 		//attack();
 		
 	}
@@ -34,7 +34,7 @@ class Isis extends FlxSprite
 		{
 			animation.play("explode");
 		}
-	}*/
+	}
 	
 	function movement() 
 	{
@@ -48,6 +48,6 @@ class Isis extends FlxSprite
 		{
 			velocity.set(-50, 0);
 		}
-	}
+	}*/
 	
 }

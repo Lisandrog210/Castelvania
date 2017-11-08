@@ -41,9 +41,10 @@ class Player extends FlxSprite
 		animation.add("throw", [7,8,9], 16, false);
 		acceleration.y = 600;
 		currentState = States.IDLE;
-		scale.set(1.5,1.5);
+		/*scale.set(1, 1);
+		updateHitbox();
 		width = 35;
-		height = 50;
+		height = 50;*/
 		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
@@ -63,11 +64,11 @@ class Player extends FlxSprite
 		Whip.pFacing = facing;
 					if (facing==FlxObject.RIGHT)
 					{						
-						whip.setPosition(x + width - 6, y + height - 35);
+						whip.setPosition(x + 35 ,y + 5);
 					}
 					else
 					{						
-						whip.setPosition(x - width + 6, y + height - 35);					
+						whip.setPosition(x + 35, y + 5);					
 					}
 	}
 
