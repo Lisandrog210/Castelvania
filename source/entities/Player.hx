@@ -39,10 +39,11 @@ class Player extends FlxSprite
 		animation.add("jump", [3,4], 8, false);
 		animation.add("whip", [5, 6, 9, 9, 9, 9, 9, 9], 16, false);
 		animation.add("throw", [7,8,9], 16, false);
-		acceleration.y = 1000;
+		acceleration.y = 600;
 		currentState = States.IDLE;
 		scale.set(1.5,1.5);
-		updateHitbox();
+		width = 35;
+		height = 50;
 		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
@@ -197,9 +198,9 @@ class Player extends FlxSprite
 		velocity.x = 0;
 
 		if (FlxG.keys.pressed.RIGHT)
-			velocity.x += 100;
+			velocity.x += 180;
 		if (FlxG.keys.pressed.LEFT)
-			velocity.x -= 100;
+			velocity.x -= 180;
 
 		if (velocity.x < 0)
 			facing = FlxObject.LEFT;

@@ -56,7 +56,7 @@ class Isis extends FlxSprite
 		if (x < Reg.PlayerPosX) 
 		{
 			velocity.y = -20;
-			counter++;
+			counter+1;
 			if (counter > 10) 
 			{
 				velocity.y = 20;
@@ -65,7 +65,7 @@ class Isis extends FlxSprite
 		else 
 		{
 			velocity.y = -20;
-			counter++;
+			counter+1;
 			if (counter > 10) 
 			{
 				velocity.y = 20;

@@ -61,7 +61,7 @@ class PlayState extends FlxState
 
 		FlxG.worldBounds.set(0, 0, tilemap.width, tilemap.height);
 		
-		player = new Player(100, 10);
+		player = new Player(180, 700);
 		player.pixelPerfectPosition = false;
 		
 		add(groupTrap);
@@ -85,7 +85,7 @@ class PlayState extends FlxState
 
 		tilemap = loader.loadTilemap(AssetPaths.tilemap__png,32,32,"walls");
 		tilemap.setTileProperties(0, FlxObject.NONE);
-		tilemap.setTileProperties(9, FlxObject.NONE);
+		tilemap.setTileProperties(5, FlxObject.NONE);
 		
 
 		loader.loadEntities(entityCreator, "entities");
