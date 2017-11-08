@@ -24,6 +24,10 @@ class LinyeraRock extends FlxSprite
 	
 	function movement() 
 	{
-		
+		if (counter == 15)
+		{
+			velocity.set(50, 10);
+			counter = 0;
+		}
 	}
 }
