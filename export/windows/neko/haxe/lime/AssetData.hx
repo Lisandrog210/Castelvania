@@ -16,6 +16,8 @@ class AssetData {
 		
 		if (!initialized) {
 			
+			path.set ("assets/data/lvl1.oel", "assets/data/lvl1.oel");
+			type.set ("assets/data/lvl1.oel", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/MAPA.oep", "assets/data/MAPA.oep");
 			type.set ("assets/data/MAPA.oep", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/MapaTerminadoBien.oel", "assets/data/MapaTerminadoBien.oel");

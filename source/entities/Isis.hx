@@ -29,10 +29,10 @@ class Isis extends FlxSprite
 	
 	function attack() 
 	{
-		if (Reg.) 
+		/*if (Reg.) 
 		{
 			
-		}
+		}*/
 	}
 	
 	function movement() 

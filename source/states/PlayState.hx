@@ -81,7 +81,7 @@ class PlayState extends FlxState
 
 	function levelSetup()
 	{
-		loader = new FlxOgmoLoader(AssetPaths.MapaTerminadoBien__oel);
+		loader = new FlxOgmoLoader(AssetPaths.lvl1__oel);
 
 		tilemap = loader.loadTilemap(AssetPaths.tilemap__png,32,32,"walls");
 		tilemap.setTileProperties(0, FlxObject.NONE);
@@ -118,6 +118,7 @@ class PlayState extends FlxState
 			case "Pinchos":
 				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
 				groupTrap.add(trap1);
+			
 			
 		}
 	}
