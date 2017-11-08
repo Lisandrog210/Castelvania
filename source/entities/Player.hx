@@ -19,6 +19,7 @@ enum States
 	//CROUCH;
 	THROW;
 	//IMMORTAL;
+	THROW2;
 }
 
 class Player extends FlxSprite
@@ -26,6 +27,7 @@ class Player extends FlxSprite
 	public var currentState(get, null):States;
 	public var whip:Whip;
 	public var kunai:Kunai;
+	public var whisky:Whisky;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -45,7 +47,9 @@ class Player extends FlxSprite
 		width = 35;
 		height = 50;
 		updateHitbox();*/
-		
+		whisky = new Whisky();
+		FlxG.state.add(whisky);
+		whisky.kill();
 		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
@@ -79,6 +83,10 @@ class Player extends FlxSprite
 				{
 					currentState = States.THROW;
 				}
+				if (FlxG.keys.justPressed.X) 
+				{
+					currentState = States.THROW2;
+				}
 				
 				if (velocity.y != 0)
 					currentState = States.JUMP;
@@ -93,6 +101,10 @@ class Player extends FlxSprite
 				animation.play("run");
 				move();
 				jump();
+				if (FlxG.keys.justPressed.X) 
+				{
+					currentState = States.THROW2;
+				}
 				if (FlxG.keys.justPressed.Z) 
 				{
 					currentState = States.THROW;
@@ -113,6 +125,10 @@ class Player extends FlxSprite
 					animation.curAnim.stop;
 				}
 				move();
+				if (FlxG.keys.justPressed.X) 
+				{
+					currentState = States.THROW2;
+				}
 				if (FlxG.keys.justPressed.SPACE)
 				{
 					currentState = States.WHIP;
@@ -170,11 +186,11 @@ class Player extends FlxSprite
 					{					
 						if (facing==FlxObject.RIGHT)
 						{						
-							kunai.reset(x + width - 6, y + height - 18);
+							kunai.reset(x + width - 6, y + height - 22);
 						}
 						else
 						{						
-							kunai.reset(x - width + 6, y + height - 18);					
+							kunai.reset(x - width + 6, y + height - 22);					
 						}
 					
 					}
@@ -183,7 +199,33 @@ class Player extends FlxSprite
 				{
 					currentState = States.IDLE;
 				}			
-			
+			case States.THROW2:
+				if (animation.name != "throw")
+				{
+					velocity.x = 0;
+					animation.play("throw");
+				}
+				jump();
+				if (animation.curAnim.curFrame == 2)
+				{
+					whisky.wFacing = facing;
+					if (whisky.alive == false) 
+					{					
+						if (facing==FlxObject.RIGHT)
+						{						
+							whisky.reset(x + width - 6, y + height - 24);
+						}
+						else
+						{						
+							whisky.reset(x - width + 6, y + height - 24);					
+						}
+					
+					}
+				}
+				if (animation.name == "throw" && animation.finished)
+				{
+					currentState = States.IDLE;
+				}			
 		}
 	}
 

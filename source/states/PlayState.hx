@@ -139,20 +139,54 @@ class PlayState extends FlxState
 	
 	function collisionDetect()
 	{
-		
+		//Colisiones gorros
 		FlxG.overlap(player, groupGorro, collidePlayerGorro);
 		FlxG.overlap(player.whip, groupGorro, collideWhipGorro);
 		FlxG.overlap(player.kunai, groupGorro, collideKunaiGorro);
+		FlxG.overlap(player.whisky, groupGorro, collideWhiskyGorro);
+		//Colisiones isis
 		FlxG.overlap(player, groupIsis, collidePlayerIsis);
+		FlxG.overlap(player.whisky, groupIsis, collideWhiskyIsis);
 		FlxG.overlap(player.whip, groupIsis, collideWhipIsis);
 		FlxG.overlap(player.kunai, groupIsis, collideKunaiIsis);
+		//Colisiones linyera
 		FlxG.overlap(player, groupLinyera, collidePlayerLinyera);
+		FlxG.overlap(player.whisky, groupLinyera, collideWhiskyLinyera);
 		FlxG.overlap(player.whip, groupLinyera, collideWhipLinyera);
 		FlxG.overlap(player.kunai, groupLinyera, collideKunaiLinyera);
+		//Colisiones slave
 		FlxG.overlap(player, groupSlave, collidePlayerSlave);
+		FlxG.overlap(player.whisky, groupSlave, collideWhiskySlave);
 		FlxG.overlap(player.whip, groupSlave, collideWhipSlave);
 		FlxG.overlap(player.kunai, groupSlave, collideKunaiSlave);
+		
 		FlxG.collide(player, groupPlatform);
+		FlxG.overlap(player, groupTrap, collidePlayerTrap);
+	}
+	
+	function collideWhiskyGorro(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhiskyIsis(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhiskyLinyera(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhiskySlave(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collidePlayerTrap(e:IFlxSprite,p:Player) 
+	{
+		p.kill();
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
