@@ -28,6 +28,7 @@ class Player extends FlxSprite
 	public var whip:Whip;
 	public var kunai:Kunai;
 	public var whisky:Whisky;
+	
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -43,10 +44,7 @@ class Player extends FlxSprite
 		animation.add("throw", [7,8,9], 16, false);
 		acceleration.y = 600;
 		currentState = States.IDLE;
-		/*scale.set(1.5, 1.5);		
-		width = 35;
-		height = 50;
-		updateHitbox();*/
+		
 		whisky = new Whisky();
 		FlxG.state.add(whisky);
 		whisky.kill();
@@ -65,10 +63,6 @@ class Player extends FlxSprite
 		Reg.PlayerPosX = x;
 		Reg.PlayerPosY = y;
 		super.update(elapsed);
-		if (FlxG.keys.justPressed.R) 
-		{
-			revive();
-		}
 		
 		
 	}
@@ -258,6 +252,5 @@ class Player extends FlxSprite
 	{
 		return currentState;
 	}
-	
 	
 }
