@@ -148,11 +148,11 @@ class Player extends FlxSprite
 					Whip.pFacing = facing;
 					if (facing==FlxObject.RIGHT)
 					{						
-						whip.reset(x + width - 6, y + height - 35);
+						whip.reset(x + width - 12, y+height + 30 );
 					}
 					else
 					{						
-						whip.reset(x - width + 6, y + height - 35);					
+						whip.reset(x - width + 12, y+height + 30);					
 					}			
 					
 				}
@@ -176,11 +176,11 @@ class Player extends FlxSprite
 					{					
 						if (facing==FlxObject.RIGHT)
 						{						
-							kunai.reset(x + width - 6, y + height - 20);
+							kunai.reset(x + width - 6, y + height - 30);
 						}
 						else
 						{						
-							kunai.reset(x - width + 6, y + height - 20);					
+							kunai.reset(x - width + 6, y + height - 30);					
 						}
 					
 					}
