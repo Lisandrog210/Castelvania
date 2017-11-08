@@ -6,23 +6,23 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 
-class Kunai extends FlxSprite 
+class Whisky extends FlxSprite 
 {
-	public var kFacing:Int;
+
+	public var wFacing:Int;
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
-		loadGraphic(AssetPaths.kunai__png, false, 32, 32);
-		scale.set(0.5, 0.5);
-		updateHitbox();
+		loadGraphic(AssetPaths.whisky__png, false, 32, 32);
+		
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);		
-		facing = kFacing;
+		facing = wFacing;
 		move();
 		limit();
 	}
@@ -31,10 +31,10 @@ class Kunai extends FlxSprite
 	{
 		if (facing == FlxObject.RIGHT) 
 		{
-			velocity.x += 20;
+			velocity.x += 15;
 		} else 
 		{
-			velocity.x -= 20;
+			velocity.x -= 15;
 		}
 	}
 	function limit() 
