@@ -7,7 +7,6 @@ class Gorro extends FlxSprite
 {
 	private var counter: Int = 0;
 	private var velMaxY: Int = 80;
-	private var shot: Enemyshot;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -29,7 +28,7 @@ class Gorro extends FlxSprite
 	{
 		if (counter == 10) 
 		{
-			shot = new Enemyshot(x, y, 1);
+			
 		}
 	}
 	

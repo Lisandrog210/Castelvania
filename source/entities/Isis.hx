@@ -17,20 +17,21 @@ class Isis extends FlxSprite
 		loadGraphic(AssetPaths.EnemiesMusulman__png, true, 14, 32);
 		animation.add("walk", [0, 1], 8, true);
 		animation.play("walk");
+		acceleration.y = 700;
 		
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		movement();		
+		//movement();		
 	}
 	
-	function movement()
+	/*function movement()
 	{
 		velocity.set(50, 0);
 		
-		if (x < Reg.PlayerPosX) 
+		if (x < Reg.PlayerPosX)
 		{
 			velocity.set(50, 0);
 		}
@@ -38,6 +39,6 @@ class Isis extends FlxSprite
 		{
 			velocity.set(-50, 0);
 		}
-	}
+	}*/
 	
 }

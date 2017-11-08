@@ -16,7 +16,7 @@ class Whip extends FlxSprite
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 		loadGraphic(AssetPaths.whip__png, true, 32, 32);
-		animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 16, false);
+		animation.add("whipAnim", [5], 1, false);
 		animation.play("whipAnim");
 		/*scale.set(1.5, 1.5);
 		width = 48;

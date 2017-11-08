@@ -12,30 +12,37 @@ import flixel.tweens.FlxTween;
  */
 class PlataformaInestable extends FlxSprite 
 {
-	private var counter: Int = 120;
+	private var counter: Int = 0;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
+		loadGraphic(AssetPaths.PlataformaInest__png, false);
 		immovable = true;
-		this.alpha = 1;
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
+		counter++;
 		desaparicion();
 	}
 	
 	function desaparicion() 
 	{
-		if (touching == 1) 
+		if (this.alive) 
 		{
-			counter--;
+			if (counter == 20) 
+			{
+				this.kill();
+			}
 		}
-		if (counter <= 0) 
+		else 
 		{
-			FlxTween.tween(this, { alpha: 0 }, 1.5, { ease: FlxEase.expoOut } );
+			if (counter == 20) 
+			{
+				this.revive();
+			}
 		}
 	}
 }

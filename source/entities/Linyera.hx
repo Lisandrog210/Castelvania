@@ -5,7 +5,7 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 
 class Linyera extends FlxSprite 
 {
-	private var shot: Enemyshot;
+	private var shot: LinyeraRock;
 	private var counter: Float = 0;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
@@ -30,7 +30,7 @@ class Linyera extends FlxSprite
 	
 	function shoot() 
 	{
-		shot = new Enemyshot(x, y, 2);
+		shot = new LinyeraRock(x, y);
 	}
 	
 	
