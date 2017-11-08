@@ -1,5 +1,6 @@
 package states;
 
+import entities.Boss;
 import entities.Linyera;
 import entities.Isis;
 import entities.Gorro;
@@ -118,6 +119,8 @@ class PlayState extends FlxState
 			case "Pinchos":
 				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
 				groupTrap.add(trap1);
+			case "Boss":
+				var boss1:Boss = new Boss(x, y, AssetPaths.
 			
 			
 		}
