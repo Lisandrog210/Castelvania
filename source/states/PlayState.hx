@@ -120,7 +120,8 @@ class PlayState extends FlxState
 				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
 				groupTrap.add(trap1);
 			case "Boss":
-				var boss1:Boss = new Boss(x, y, AssetPaths.
+				var boss1:Boss = new Boss(x, y, AssetPaths.boss__png);
+				add(boss1);
 			
 			
 		}
@@ -156,12 +157,12 @@ class PlayState extends FlxState
 		super.update(elapsed);
 		collisionDetect();
 		FlxG.collide(player, tilemap);
-		FlxG.collide(groupTrap, tilemap);
+		/*FlxG.collide(groupTrap, tilemap);
 		FlxG.collide(groupSlave, tilemap);
 		FlxG.collide(groupGorro, tilemap);
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
-		FlxG.collide(groupLinyera, tilemap);
+		FlxG.collide(groupLinyera, tilemap);*/
 		
 	}
 	
