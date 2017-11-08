@@ -155,12 +155,12 @@
     <Musulman id="124" x="4320" y="736" />
     <Musulman id="123" x="3712" y="288" />
     <Plataforma id="125" x="1504" y="640" />
-    <Plataforma id="126" x="2208" y="640" />
     <Plataforma id="127" x="4064" y="448" />
     <Plataforma id="62" x="3168" y="736" />
     <vidasJugador id="129" x="768" y="736" />
     <vidasJugador id="130" x="2688" y="736" />
     <vidasJugador id="128" x="4896" y="704" />
     <Boss id="131" x="4928" y="608" />
+    <Plataforma id="132" x="2144" y="768" />
   </entities>
 </level>

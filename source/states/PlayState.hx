@@ -133,18 +133,75 @@ class PlayState extends FlxState
 		FlxG.overlap(player, groupGorro, collidePlayerGorro);
 		FlxG.overlap(player.whip, groupGorro, collideWhipGorro);
 		FlxG.overlap(player.kunai, groupGorro, collideKunaiGorro);
+		FlxG.overlap(player, groupIsis, collidePlayerIsis);
+		FlxG.overlap(player.whip, groupIsis, collideWhipIsis);
+		FlxG.overlap(player.kunai, groupIsis, collideKunaiIsis);
+		FlxG.overlap(player, groupLinyera, collidePlayerLinyera);
+		FlxG.overlap(player.whip, groupLinyera, collideWhipLinyera);
+		FlxG.overlap(player.kunai, groupLinyera, collideKunaiLinyera);
+		FlxG.overlap(player, groupSlave, collidePlayerSlave);
+		FlxG.overlap(player.whip, groupSlave, collideWhipSlave);
+		FlxG.overlap(player.kunai, groupSlave, collideKunaiSlave);
+		
 	}
+	
+	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhipSlave(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collidePlayerSlave(e:FlxSprite, p:Player)
+	{
+		e.kill();
+		p.kill();
+	}	
+	
+	function collideKunaiLinyera(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhipLinyera(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collidePlayerLinyera(e:FlxSprite, p:Player)
+	{
+		e.kill();
+		p.kill();
+	}	
+	
+	function collideKunaiIsis(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collideWhipIsis(e:FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
+	}
+	
+	function collidePlayerIsis(e:FlxSprite, p:Player)
+	{
+		e.kill();
+		p.kill();
+	}	
 	
 	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
 	{
-		//e.kill();
 		w.kill();
 	}
 	
 	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
-			e.kill();
-			p.kill();
+		e.kill();
+		p.kill();
 	}	
 	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
