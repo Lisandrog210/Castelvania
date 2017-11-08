@@ -193,7 +193,16 @@ class PlayState extends FlxState
 	
 	function collidePlayerTrap(t:Trap,p:Player) 
 	{
+<<<<<<< Updated upstream
+		p.life = p.life -1;
+=======
+<<<<<<< HEAD
+		t.kill();
+	//	p.life = p.life -1;
+=======
 		p.kill();
+>>>>>>> master
+>>>>>>> Stashed changes
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
@@ -209,7 +218,15 @@ class PlayState extends FlxState
 	function collidePlayerSlave(e:FlxSprite, p:Player)
 	{
 		e.kill();
+<<<<<<< Updated upstream
+		p.life = p.life -1;
+=======
+<<<<<<< HEAD
+	//	p.life = p.life -1;
+=======
 		p.kill();
+>>>>>>> master
+>>>>>>> Stashed changes
 	}	
 	
 	function collideKunaiLinyera(e:FlxSprite, w:FlxSprite) 
@@ -225,7 +242,15 @@ class PlayState extends FlxState
 	function collidePlayerLinyera(e:FlxSprite, p:Player)
 	{
 		e.kill();
+<<<<<<< Updated upstream
+		p.life = p.life -1;
+=======
+<<<<<<< HEAD
+	//	p.life = p.life -1;
+=======
 		p.kill();
+>>>>>>> master
+>>>>>>> Stashed changes
 	}	
 	
 	function collideKunaiIsis(e:FlxSprite, w:FlxSprite) 
@@ -241,8 +266,16 @@ class PlayState extends FlxState
 	function collidePlayerIsis(e:FlxSprite, p:Player)
 	{
 		e.kill();
+<<<<<<< Updated upstream
+		p.life = p.life-1;
+=======
+<<<<<<< HEAD
+	//	p.life = p.life-1;
+=======
 		p.kill();
 		
+>>>>>>> master
+>>>>>>> Stashed changes
 	}	
 	
 	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
@@ -253,7 +286,15 @@ class PlayState extends FlxState
 	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
 		e.kill();
+<<<<<<< Updated upstream
+		p.life = p.life-1;
+=======
+<<<<<<< HEAD
+	//	p.life = p.life-1;
+=======
 		p.kill();
+>>>>>>> master
+>>>>>>> Stashed changes
 	}	
 	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
@@ -274,6 +315,14 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
+<<<<<<< Updated upstream
+		lifebar(
+=======
+<<<<<<< HEAD
+		//lifebar(
+=======
+>>>>>>> master
+>>>>>>> Stashed changes
 		
 	}
 }	
