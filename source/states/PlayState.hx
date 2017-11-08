@@ -132,7 +132,7 @@ class PlayState extends FlxState
 				add(boss1);
 			case "PlataformaInest":
 				var Plat1:PlataformaInestable = new PlataformaInestable(x, y, AssetPaths.PlataformaInest__png);
-				groupPlataformaInest.add(Plat1);
+				//groupPlataformaInest.add(Plat1);
 			
 		}
 	}

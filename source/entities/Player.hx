@@ -41,10 +41,11 @@ class Player extends FlxSprite
 		animation.add("throw", [7,8,9], 16, false);
 		acceleration.y = 600;
 		currentState = States.IDLE;
-		/*scale.set(1, 1);
-		updateHitbox();
+		/*scale.set(1.5, 1.5);		
 		width = 35;
-		height = 50;*/
+		height = 50;
+		updateHitbox();*/
+		
 		whip = new Whip();
 		FlxG.state.add(whip);
 		whip.kill();
@@ -61,15 +62,7 @@ class Player extends FlxSprite
 		Reg.PlayerPosY = y;
 		super.update(elapsed);
 		
-		Whip.pFacing = facing;
-					if (facing==FlxObject.RIGHT)
-					{						
-						whip.setPosition(x + 35 ,y + 5);
-					}
-					else
-					{						
-						whip.setPosition(x + 35, y + 5);					
-					}
+		
 	}
 
 	private function stateMachine() : Void
@@ -146,14 +139,14 @@ class Player extends FlxSprite
 				jump();
 				if (animation.curAnim.curFrame == 2)
 				{
-					Whip.pFacing = facing;
+					whip.pFacing = facing;
 					if (facing==FlxObject.RIGHT)
 					{						
-						whip.reset(x + width - 12, y+height + 30 );
+						whip.reset(x + width - 11, y+height -33);
 					}
 					else
 					{						
-						whip.reset(x - width + 12, y+height + 30);					
+						whip.reset(x -width + 15, y+height-33);					
 					}			
 					
 				}
@@ -177,11 +170,11 @@ class Player extends FlxSprite
 					{					
 						if (facing==FlxObject.RIGHT)
 						{						
-							kunai.reset(x + width - 6, y + height - 30);
+							kunai.reset(x + width - 6, y + height - 18);
 						}
 						else
 						{						
-							kunai.reset(x - width + 6, y + height - 30);					
+							kunai.reset(x - width + 6, y + height - 18);					
 						}
 					
 					}

@@ -8,7 +8,7 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 class Whip extends FlxSprite
 {
 
-	static public var pFacing:Int;
+	public var pFacing:Int;
 	
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -18,7 +18,12 @@ class Whip extends FlxSprite
 		loadGraphic(AssetPaths.whip__png, true, 32, 32);
 		animation.add("whipAnim", [0, 1, 2, 3, 4, 5], 16, false);
 		animation.play("whipAnim");
-		scale.set(1.5, 1.5);
+		/*scale.set(1.5, 1.5);
+		width = 48;
+		height = 48;
+		updateHitbox();
+		offset.set(x - width / 2, y - height / 2);*/
+		facing = FlxObject.RIGHT;
 	}
 
 	override public function update(elapsed:Float):Void
@@ -27,6 +32,7 @@ class Whip extends FlxSprite
 		animation.play("whipAnim");
 		
 		facing = pFacing;
+		
 		
 	}
 }

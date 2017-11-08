@@ -16,7 +16,7 @@
     <Width>5120</Width>
     <Height>3500</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\Lisandro\Desktop\Image\Desarrollo\castlevania\Castelvania\assets\data\MAPA.oep</Filename>
+  <Filename>C:\Users\Agustinb\Documents\Trabajos Desarrollo\Castelvania\assets\data\MAPA.oep</Filename>
   <AngleMode>Degrees</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -195,6 +195,21 @@
       </Origin>
       <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
         <RectColor A="255" R="128" G="0" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="PlataformaInest" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>32</Width>
+        <Height>32</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="0" G="0" B="0" />
       </ImageDefinition>
       <ValueDefinitions />
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
