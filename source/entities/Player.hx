@@ -8,6 +8,7 @@ import entities.Whip;
 import flixel.FlxState;
 import entities.Kunai;
 
+
 import flixel.util.FlxColor;
 
 enum States
@@ -28,6 +29,7 @@ class Player extends FlxSprite
 	public var whip:Whip;
 	public var kunai:Kunai;
 	public var whisky:Whisky;
+	
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset)
 	{
@@ -251,6 +253,8 @@ class Player extends FlxSprite
 	function jump():Void
 	{
 		if (FlxG.keys.justPressed.UP && isTouching(FlxObject.FLOOR))
+		
+		
 			velocity.y = -300;
 	}
 

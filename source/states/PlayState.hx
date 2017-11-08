@@ -85,6 +85,7 @@ class PlayState extends FlxState
 			FlxG.sound.playMusic(AssetPaths.Castlevania__wav, 1, true);
 		}
 		
+		
 	}
 
 	function cameraSetup()
@@ -143,6 +144,8 @@ class PlayState extends FlxState
 	
 	function collisionDetect()
 	{
+		//Colisiones Pinchos
+		FlxG.overlap(player, groupTrap, collidePlayerTrap);
 		//Colisiones gorros
 		FlxG.overlap(player, groupGorro, collidePlayerGorro);
 		FlxG.overlap(player.whip, groupGorro, collideWhipGorro);
@@ -190,7 +193,8 @@ class PlayState extends FlxState
 	
 	function collidePlayerTrap(t:Trap,p:Player) 
 	{
-		p.life = p.life -1;
+		t.kill();
+	//	p.life = p.life -1;
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
@@ -206,7 +210,7 @@ class PlayState extends FlxState
 	function collidePlayerSlave(e:FlxSprite, p:Player)
 	{
 		e.kill();
-		p.life = p.life -1;
+	//	p.life = p.life -1;
 	}	
 	
 	function collideKunaiLinyera(e:FlxSprite, w:FlxSprite) 
@@ -222,7 +226,7 @@ class PlayState extends FlxState
 	function collidePlayerLinyera(e:FlxSprite, p:Player)
 	{
 		e.kill();
-		p.life = p.life -1;
+	//	p.life = p.life -1;
 	}	
 	
 	function collideKunaiIsis(e:FlxSprite, w:FlxSprite) 
@@ -238,7 +242,7 @@ class PlayState extends FlxState
 	function collidePlayerIsis(e:FlxSprite, p:Player)
 	{
 		e.kill();
-		p.life = p.life-1;
+	//	p.life = p.life-1;
 	}	
 	
 	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
@@ -249,7 +253,7 @@ class PlayState extends FlxState
 	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
 		e.kill();
-		p.life = p.life-1;
+	//	p.life = p.life-1;
 	}	
 	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
@@ -268,7 +272,7 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
-		lifebar(
+		//lifebar(
 		
 	}
 }	

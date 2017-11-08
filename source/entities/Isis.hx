@@ -3,10 +3,6 @@ package entities;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-/**
- * ...
- * @author Lisandro
- */
 class Isis extends FlxSprite 
 {
 	private var counter: Int = 0;
@@ -16,6 +12,7 @@ class Isis extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		loadGraphic(AssetPaths.EnemiesMusulman__png, true, 14, 32);
 		animation.add("walk", [0, 1], 8, true);
+		
 		animation.play("walk");
 		acceleration.y = 700;
 		
@@ -24,21 +21,15 @@ class Isis extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		//movement();		
+		explode();
 	}
 	
-	/*function movement()
+	function explode() 
 	{
-		velocity.set(50, 0);
-		
-		if (x < Reg.PlayerPosX)
+		if (x - Reg.PlayerPosX < 20 && x - Reg.PlayerPosX > -20)
 		{
-			velocity.set(50, 0);
+			loadGraphic(AssetPaths.explosion__png);
 		}
-		else 
-		{
-			velocity.set(-50, 0);
-		}
-	}*/
+	}
 	
 }
