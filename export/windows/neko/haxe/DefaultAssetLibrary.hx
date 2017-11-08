@@ -706,6 +706,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Lingera.png", AssetType.IMAGE);
 		path.set ("assets/images/linyera.png", "assets/images/linyera.png");
 		type.set ("assets/images/linyera.png", AssetType.IMAGE);
+		path.set ("assets/images/pinchos.png", "assets/images/pinchos.png");
+		type.set ("assets/images/pinchos.png", AssetType.IMAGE);
 		path.set ("assets/images/PlataformaInest.png", "assets/images/PlataformaInest.png");
 		type.set ("assets/images/PlataformaInest.png", AssetType.IMAGE);
 		path.set ("assets/images/platform.png", "assets/images/platform.png");
@@ -720,8 +722,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/slave.png", AssetType.IMAGE);
 		path.set ("assets/images/tilemap.png", "assets/images/tilemap.png");
 		type.set ("assets/images/tilemap.png", AssetType.IMAGE);
-		path.set ("assets/images/trap.png", "assets/images/trap.png");
-		type.set ("assets/images/trap.png", AssetType.IMAGE);
 		path.set ("assets/images/vidasJugador.png", "assets/images/vidasJugador.png");
 		type.set ("assets/images/vidasJugador.png", AssetType.IMAGE);
 		path.set ("assets/images/whip.png", "assets/images/whip.png");
@@ -802,6 +802,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/linyera.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/pinchos.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/PlataformaInest.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -821,9 +824,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/tilemap.png";
-		path.set (id, id);
-		type.set (id, AssetType.IMAGE);
-		id = "assets/images/trap.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/vidasJugador.png";

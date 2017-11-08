@@ -24,10 +24,19 @@ class Isis extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		//movement();		
+		movement();		
+		explosion();
 	}
 	
-	/*function movement()
+	function explosion() 
+	{
+		if (x - Reg.PlayerPosX < 10 && x- Reg.PlayerPosX > -10)
+		{
+			loadGraphic(AssetPaths.explosion__png);
+		}
+	}
+	
+	function movement()
 	{
 		velocity.set(50, 0);
 		
@@ -39,6 +48,6 @@ class Isis extends FlxSprite
 		{
 			velocity.set(-50, 0);
 		}
-	}*/
+	}
 	
 }

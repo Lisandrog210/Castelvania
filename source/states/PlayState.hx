@@ -40,12 +40,13 @@ class PlayState extends FlxState
 	private var groupTrap:FlxTypedGroup<Trap>;
 	private var groupPlatform:FlxTypedGroup<Platform>;
 	private var groupPlataformaInest:FlxTypedGroup<PlataformaInestable>;
-
+	
+	private static var _justDead:Bool = false;
 
 	override public function create():Void
 	{
 		super.create();
-		
+
 		groupSlave = new FlxTypedGroup<Slave>();
 		groupIsis = new FlxTypedGroup<Isis>();
 		groupLinyera = new FlxTypedGroup<Linyera>();
@@ -82,6 +83,7 @@ class PlayState extends FlxState
 		{
 			FlxG.sound.playMusic(AssetPaths.Castlevania__wav, 1, true);
 		}
+		
 		
 	}
 
@@ -127,7 +129,7 @@ class PlayState extends FlxState
 				var platform1:Platform = new Platform(x, y, AssetPaths.platform__png);
 				groupPlatform.add(platform1);
 			case "Pinchos":
-				var trap1:Trap = new Trap(x, y, AssetPaths.trap__png);
+				var trap1:Trap = new Trap(x, y, AssetPaths.pinchos__png);
 				groupTrap.add(trap1);
 			case "Boss":
 				var boss1:Boss = new Boss(x, y, AssetPaths.boss__png);
@@ -268,5 +270,11 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
+		
+		if (player.alive == false)
+		{
+			_justDead = true;
+			FlxG.resetState();
+		}
 	}
 }	
