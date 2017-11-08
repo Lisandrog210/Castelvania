@@ -117,7 +117,7 @@ class Player extends FlxSprite
 					currentState = States.JUMP;
 				else if (velocity.x == 0)
 					currentState = States.IDLE;
-										
+					
 			case States.JUMP:
 				animation.play("jump");
 				if (animation.curAnim.curFrame == 1)

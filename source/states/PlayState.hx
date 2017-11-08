@@ -52,6 +52,7 @@ class PlayState extends FlxState
 		groupGorro = new FlxTypedGroup<Gorro>();
 		groupTrap = new FlxTypedGroup<Trap>();
 		groupPlatform = new FlxTypedGroup<Platform>();
+		groupPlataformaInest = new FlxTypedGroup<PlataformaInestable>();
 		
 		
 		hud = new FlxSprite(0, 0);
@@ -74,6 +75,7 @@ class PlayState extends FlxState
 		add(groupIsis);
 		add(groupGorro);
 		add(player);
+		add(groupPlataformaInest);
 		cameraSetup();
 		
 		if (FlxG.sound.music == null)
@@ -132,7 +134,7 @@ class PlayState extends FlxState
 				add(boss1);
 			case "PlataformaInest":
 				var Plat1:PlataformaInestable = new PlataformaInestable(x, y, AssetPaths.PlataformaInest__png);
-				//groupPlataformaInest.add(Plat1);
+				groupPlataformaInest.add(Plat1);
 			
 		}
 	}
