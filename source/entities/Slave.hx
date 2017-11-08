@@ -29,7 +29,7 @@ class Slave extends FlxSprite
 	
 	function movement() 
 	{
-		/*if (x < Reg.PlayerPosX) 
+		if (x < Reg.PlayerPosX) 
 		{
 			x += 80 * FlxG.elapsed;
 			facing = FlxObject.RIGHT;
@@ -38,7 +38,7 @@ class Slave extends FlxSprite
 		{
 			x -= 80 * FlxG.elapsed;
 			facing = FlxObject.LEFT;
-		}*/
+		}
 	}
 }
 

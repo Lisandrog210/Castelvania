@@ -1,7 +1,6 @@
 package states;
 
 import entities.Boss;
-import entities.Lifebar;
 import entities.Linyera;
 import entities.Isis;
 import entities.Gorro;
@@ -41,7 +40,6 @@ class PlayState extends FlxState
 	private var groupTrap:FlxTypedGroup<Trap>;
 	private var groupPlatform:FlxTypedGroup<Platform>;
 	private var groupPlataformaInest:FlxTypedGroup<PlataformaInestable>;
-	private var lifebar:Lifebar;
 
 
 	override public function create():Void
@@ -56,7 +54,6 @@ class PlayState extends FlxState
 		groupPlatform = new FlxTypedGroup<Platform>();
 		groupPlataformaInest = new FlxTypedGroup<PlataformaInestable>();
 		
-		lifebar = new Lifebar(2, 2);
 		
 		hud = new FlxSprite(0, 0,AssetPaths.lifebar__png);
 		hud.makeGraphic(256, 30, FlxColor.BLACK);
@@ -65,8 +62,6 @@ class PlayState extends FlxState
 		levelSetup();		
 		add(tilemap);
 		add(hud);
-		add(lifebar);
-		lifebar.scrollFactor.set(0, 0);
 
 		FlxG.worldBounds.set(0, 0, tilemap.width, tilemap.height);
 		
@@ -193,16 +188,7 @@ class PlayState extends FlxState
 	
 	function collidePlayerTrap(t:Trap,p:Player) 
 	{
-<<<<<<< Updated upstream
-		p.life = p.life -1;
-=======
-<<<<<<< HEAD
 		t.kill();
-	//	p.life = p.life -1;
-=======
-		p.kill();
->>>>>>> master
->>>>>>> Stashed changes
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
@@ -218,15 +204,7 @@ class PlayState extends FlxState
 	function collidePlayerSlave(e:FlxSprite, p:Player)
 	{
 		e.kill();
-<<<<<<< Updated upstream
-		p.life = p.life -1;
-=======
-<<<<<<< HEAD
-	//	p.life = p.life -1;
-=======
 		p.kill();
->>>>>>> master
->>>>>>> Stashed changes
 	}	
 	
 	function collideKunaiLinyera(e:FlxSprite, w:FlxSprite) 
@@ -242,16 +220,8 @@ class PlayState extends FlxState
 	function collidePlayerLinyera(e:FlxSprite, p:Player)
 	{
 		e.kill();
-<<<<<<< Updated upstream
-		p.life = p.life -1;
-=======
-<<<<<<< HEAD
-	//	p.life = p.life -1;
-=======
 		p.kill();
->>>>>>> master
->>>>>>> Stashed changes
-	}	
+	}
 	
 	function collideKunaiIsis(e:FlxSprite, w:FlxSprite) 
 	{
@@ -266,16 +236,7 @@ class PlayState extends FlxState
 	function collidePlayerIsis(e:FlxSprite, p:Player)
 	{
 		e.kill();
-<<<<<<< Updated upstream
-		p.life = p.life-1;
-=======
-<<<<<<< HEAD
-	//	p.life = p.life-1;
-=======
 		p.kill();
-		
->>>>>>> master
->>>>>>> Stashed changes
 	}	
 	
 	function collideWhipGorro(e:FlxSprite, w:FlxSprite) 
@@ -286,15 +247,7 @@ class PlayState extends FlxState
 	function collidePlayerGorro(e:FlxSprite, p:Player)
 	{
 		e.kill();
-<<<<<<< Updated upstream
-		p.life = p.life-1;
-=======
-<<<<<<< HEAD
-	//	p.life = p.life-1;
-=======
 		p.kill();
->>>>>>> master
->>>>>>> Stashed changes
 	}	
 	function collideKunaiGorro(e:FlxSprite, k:Kunai)
 	{
@@ -315,14 +268,5 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
-<<<<<<< Updated upstream
-		lifebar(
-=======
-<<<<<<< HEAD
-		//lifebar(
-=======
->>>>>>> master
->>>>>>> Stashed changes
-		
 	}
 }	

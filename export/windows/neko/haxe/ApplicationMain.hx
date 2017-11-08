@@ -515,19 +515,7 @@ class ApplicationMain {
 		
 		config = {
 			
-<<<<<<< Updated upstream
-			build: "603",
-=======
-<<<<<<< Updated upstream
-			build: "583",
-=======
-<<<<<<< HEAD
-			build: "614",
-=======
-			build: "603",
->>>>>>> master
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+			build: "9",
 			company: "Lisandro",
 			file: "Castlevania",
 			fps: 60,
