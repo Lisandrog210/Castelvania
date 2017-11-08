@@ -184,9 +184,9 @@ class PlayState extends FlxState
 		w.kill();
 	}
 	
-	function collidePlayerTrap(e:IFlxSprite,p:Player) 
+	function collidePlayerTrap(t:Trap,p:Player) 
 	{
-		p.kill();
+		t.kill();
 	}
 	
 	function collideKunaiSlave(e:FlxSprite, w:FlxSprite) 
@@ -264,10 +264,6 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
-		
-	}
-	
-	function checkPlayerState(){
 		
 	}
 }	

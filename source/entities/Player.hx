@@ -65,6 +65,10 @@ class Player extends FlxSprite
 		Reg.PlayerPosX = x;
 		Reg.PlayerPosY = y;
 		super.update(elapsed);
+		if (FlxG.keys.justPressed.R) 
+		{
+			revive();
+		}
 		
 		
 	}
