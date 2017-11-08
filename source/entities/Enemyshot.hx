@@ -29,10 +29,10 @@ class Enemyshot extends FlxSprite
 				this.velocity.set(0, 50);
 			case 2:
 				loadGraphic(AssetPaths.rockLinyera__png);
-				velocity.set(20, 0);
+				velocity.set(5, 0);
 				if (counter > 20) 
 				{
-					velocity.set(20, 10);
+					velocity.set(5, 10);
 				}
 				
 		}

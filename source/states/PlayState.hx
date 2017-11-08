@@ -6,6 +6,7 @@ import entities.Isis;
 import entities.Gorro;
 import entities.GouhlFly;
 import entities.Kunai;
+import entities.PlataformaInestable;
 import entities.Platform;
 import entities.Slave;
 import entities.Trap;
@@ -38,8 +39,9 @@ class PlayState extends FlxState
 	private var groupLinyera:FlxTypedGroup<Linyera>;
 	private var groupTrap:FlxTypedGroup<Trap>;
 	private var groupPlatform:FlxTypedGroup<Platform>;
+	private var groupPlataformaInest:FlxTypedGroup<PlataformaInestable>;
 
-		
+
 	override public function create():Void
 	{
 		super.create();
@@ -128,7 +130,9 @@ class PlayState extends FlxState
 			case "Boss":
 				var boss1:Boss = new Boss(x, y, AssetPaths.boss__png);
 				add(boss1);
-			
+			case "PlataformaInest":
+				var Plat1:PlataformaInestable = new PlataformaInestable(x, y, AssetPaths.PlataformaInest__png);
+				groupPlataformaInest.add(Plat1);
 			
 		}
 	}
@@ -148,7 +152,6 @@ class PlayState extends FlxState
 		FlxG.overlap(player, groupSlave, collidePlayerSlave);
 		FlxG.overlap(player.whip, groupSlave, collideWhipSlave);
 		FlxG.overlap(player.kunai, groupSlave, collideKunaiSlave);
-		
 		FlxG.collide(player, groupPlatform);
 	}
 	
