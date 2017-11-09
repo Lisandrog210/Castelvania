@@ -6,11 +6,12 @@ import entities.Isis;
 import entities.Gorro;
 import entities.GouhlFly;
 import entities.Kunai;
-import entities.PlataformaInestable;
 import entities.Platform;
+import entities.Reja;
 import entities.Slave;
 import entities.Trap;
 import entities.Whip;
+import entities.Reja;
 import flixel.FlxBasic;
 import flixel.FlxState;
 import entities.Player;
@@ -39,7 +40,7 @@ class PlayState extends FlxState
 	private var groupLinyera:FlxTypedGroup<Linyera>;
 	private var groupTrap:FlxTypedGroup<Trap>;
 	private var groupPlatform:FlxTypedGroup<Platform>;
-	private var groupPlataformaInest:FlxTypedGroup<PlataformaInestable>;
+	private var groupReja:FlxTypedGroup<Reja>;
 	
 	private static var _justDead:Bool = false;
 
@@ -53,7 +54,7 @@ class PlayState extends FlxState
 		groupGorro = new FlxTypedGroup<Gorro>();
 		groupTrap = new FlxTypedGroup<Trap>();
 		groupPlatform = new FlxTypedGroup<Platform>();
-		groupPlataformaInest = new FlxTypedGroup<PlataformaInestable>();
+		groupReja = new FlxTypedGroup<Reja>();
 		
 		
 		hud = new FlxSprite(0, 0,AssetPaths.lifebar__png);
@@ -76,13 +77,13 @@ class PlayState extends FlxState
 		add(groupIsis);
 		add(groupGorro);
 		add(player);
-		add(groupPlataformaInest);
+		add(groupReja);
 		cameraSetup();
 		
-		if (FlxG.sound.music == null)
+		/*if (FlxG.sound.music == null)
 		{
 			FlxG.sound.playMusic(AssetPaths.Castlevania__wav, 1, true);
-		}
+		}*/
 		
 		
 	}
@@ -134,9 +135,9 @@ class PlayState extends FlxState
 			case "Boss":
 				var boss1:Boss = new Boss(x, y, AssetPaths.boss__png);
 				add(boss1);
-			case "PlataformaInest":
-				var Plat1:PlataformaInestable = new PlataformaInestable(x, y, AssetPaths.PlataformaInest__png);
-				groupPlataformaInest.add(Plat1);
+			case "Reja":
+				var Reja1:Reja = new Reja(x, y, AssetPaths.PlataformaInest__png);
+				groupReja.add(Reja1);
 			
 		}
 	}
@@ -163,9 +164,17 @@ class PlayState extends FlxState
 		FlxG.overlap(player.whisky, groupSlave, collideWhiskySlave);
 		FlxG.overlap(player.whip, groupSlave, collideWhipSlave);
 		FlxG.overlap(player.kunai, groupSlave, collideKunaiSlave);
+		//Colision Reja
+		FlxG.overlap(player.whip, groupReja, collideWhipReja);
 		
+		FlxG.collide(player, groupReja);
 		FlxG.collide(player, groupPlatform);
 		FlxG.overlap(player, groupTrap, collidePlayerTrap);
+	}
+	
+	function collideWhipReja(e: FlxSprite, w:FlxSprite) 
+	{
+		w.kill();
 	}
 	
 	function collideWhiskyGorro(e:FlxSprite, w:FlxSprite) 
@@ -270,6 +279,7 @@ class PlayState extends FlxState
 		FlxG.collide(groupIsis, tilemap);
 		FlxG.collide(groupPlatform, tilemap);
 		FlxG.collide(groupLinyera, tilemap);
+		FlxG.collide(groupReja, tilemap);
 		
 		if (player.alive == false)
 		{

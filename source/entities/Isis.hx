@@ -3,10 +3,6 @@ package entities;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-/**
- * ...
- * @author Lisandro
- */
 class Isis extends FlxSprite 
 {
 	private var counter: Int = 0;
@@ -23,8 +19,7 @@ class Isis extends FlxSprite
 	
 	override public function update(elapsed:Float):Void 
 	{
-		super.update(elapsed);
-		movement();		
+		super.update(elapsed);		
 		explosion();
 	}
 	
@@ -33,20 +28,6 @@ class Isis extends FlxSprite
 		if (x - Reg.PlayerPosX < 10 && x- Reg.PlayerPosX > -10)
 		{
 			loadGraphic(AssetPaths.explosion__png);
-		}
-	}
-	
-	function movement()
-	{
-		velocity.set(50, 0);
-		
-		if (x < Reg.PlayerPosX)
-		{
-			velocity.set(50, 0);
-		}
-		else 
-		{
-			velocity.set(-50, 0);
 		}
 	}
 	
