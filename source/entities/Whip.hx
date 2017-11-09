@@ -18,12 +18,11 @@ class Whip extends FlxSprite
 		loadGraphic(AssetPaths.whip__png, true, 32, 32);
 		animation.add("whipAnim", [5], 1, false);
 		animation.play("whipAnim");
-		/*scale.set(1.5, 1.5);
-		width = 48;
-		height = 48;
+		
 		updateHitbox();
-		offset.set(x - width / 2, y - height / 2);*/
+		
 		facing = FlxObject.RIGHT;
+		
 	}
 
 	override public function update(elapsed:Float):Void

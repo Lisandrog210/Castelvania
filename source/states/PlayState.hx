@@ -129,7 +129,7 @@ class PlayState extends FlxState
 				var platform1:Platform = new Platform(x, y, AssetPaths.platform__png);
 				groupPlatform.add(platform1);
 			case "Pinchos":
-				var trap1:Trap = new Trap(x, y, AssetPaths.pinchos__png);
+				var trap1:Trap = new Trap(x, y+22, AssetPaths.pinchos__png);				
 				groupTrap.add(trap1);
 			case "Boss":
 				var boss1:Boss = new Boss(x, y, AssetPaths.boss__png);

@@ -54,6 +54,9 @@ class Player extends FlxSprite
 		kunai = new Kunai();
 		FlxG.state.add(kunai);
 		kunai.kill();
+		
+		width = 20;
+		offset.set(8, 0);
 
 	}
 
