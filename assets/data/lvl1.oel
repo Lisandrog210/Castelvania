@@ -105,7 +105,6 @@
     <Gorro id="96" x="3488" y="192" />
     <Linyera id="109" x="1280" y="736" />
     <Linyera id="112" x="2784" y="448" />
-    <Linyera id="116" x="3584" y="736" />
     <Linyera id="118" x="3424" y="288" />
     <Musulman id="117" x="2496" y="448" />
     <Musulman id="120" x="2240" y="608" />
@@ -124,7 +123,6 @@
     <Musulman id="81" x="1024" y="736" />
     <Linyera id="62" x="3168" y="736" />
     <Plataforma id="93" x="1536" y="640" />
-    <Plataforma id="92" x="3392" y="448" />
     <Gorro id="87" x="1184" y="544" />
     <EnemigoNegro id="88" x="640" y="608" />
     <EnemigoNegro id="94" x="1152" y="608" />
@@ -136,5 +134,7 @@
     <Reja id="80" x="3872" y="736" />
     <Reja id="82" x="3872" y="704" />
     <Pinchos id="84" x="4032" y="736" />
+    <Plataforma id="85" x="3392" y="480" />
+    <Linyera id="86" x="3456" y="736" />
   </entities>
 </level>
