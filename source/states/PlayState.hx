@@ -80,10 +80,10 @@ class PlayState extends FlxState
 		add(groupReja);
 		cameraSetup();
 		
-		/*if (FlxG.sound.music == null)
+		if (FlxG.sound.music == null)
 		{
 			FlxG.sound.playMusic(AssetPaths.Castlevania__wav, 1, true);
-		}*/
+		}
 		
 		
 	}
