@@ -159,11 +159,11 @@ class Player extends FlxSprite
 					whip.pFacing = facing;
 					if (facing==FlxObject.RIGHT)
 					{						
-						whip.reset(x + width - 11, y+height -33);
+						whip.reset(x + width, y+height -34);
 					}
 					else
 					{						
-						whip.reset(x -width + 15, y+height-33);					
+						whip.reset(x - width -7, y+height-34);					
 					}			
 					
 				}
